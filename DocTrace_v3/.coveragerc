@@ -1,0 +1,3 @@
+[run]
+source = DocTrace_v3
+omit = DocTrace_v3/test*
