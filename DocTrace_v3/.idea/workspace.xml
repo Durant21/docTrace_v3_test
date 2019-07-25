@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3770783-807f-4c03-b39f-abb37c186632" name="Default Changelist" comment="" />
+    <list default="true" id="c3770783-807f-4c03-b39f-abb37c186632" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/API/Sections_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/Sections_old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/DAL/Sections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/Domain/Groups.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/Domain/Sections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/viewmodels/create_group_viewodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/viewmodels/create_section_viewodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/viewmodels/update_section_viewmodel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/BLL/Sections.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/Sections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/db/myDocuments.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/db/myDocuments.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/templates/document_layout.pt" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/templates/document_layout.pt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/templates/scripts/documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/documents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/templates/trace_layout.pt" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/templates/trace_layout.pt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +54,20 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myDocuments" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="Document: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myDocuments" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="Sections: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -45,16 +78,30 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1OTGVixSCIfbzZ2ZTf6QZ0aTjTk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DocTrace_v3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DocTrace_v3/DAL" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DocTrace_v3/static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/DocTrace_v3/templates" />
-      <recent name="$PROJECT_DIR$/DocTrace_v3" />
+      <recent name="$PROJECT_DIR$/DocTrace_v3/DAL" />
+      <recent name="$PROJECT_DIR$/DocTrace_v3/BLL" />
+      <recent name="$PROJECT_DIR$/DocTrace_v3/viewmodels" />
+      <recent name="$PROJECT_DIR$/DocTrace_v3/API" />
+      <recent name="$PROJECT_DIR$/DocTrace_v3/Domain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,17 +160,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3c4a8752" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3c4a8752" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@97d8e2a" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -140,12 +177,27 @@
       <option name="presentableId" value="Default" />
       <updated>1563994198339</updated>
       <workItem from="1563994200155" duration="9493000" />
-      <workItem from="1564010544163" duration="372000" />
+      <workItem from="1564010544163" duration="472000" />
+      <workItem from="1564071707969" duration="19663000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -169,6 +221,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DocTrace_v3$DocTrace_v3.coverage" NAME="DocTrace_v3 Coverage Results" MODIFIED="1564010919103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/DocTrace_v3$DocTrace_v3.coverage" NAME="DocTrace_v3 Coverage Results" MODIFIED="1564095443892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
   </component>
 </project>

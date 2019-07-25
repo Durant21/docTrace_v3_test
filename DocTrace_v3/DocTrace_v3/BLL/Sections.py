@@ -1,23 +1,55 @@
-from DocTrace_v3.DAL.sql_sections import Sections
-
+from DocTrace_v3.DAL.Sections import DAL_Sections
+from DocTrace_v3.viewmodels.create_section_viewodel import CreateSectionViewModel
+from DocTrace_v3.viewmodels.update_section_viewmodel import UpdateSectionViewModel
 
 class BLL_Sections:
 
     @classmethod
     def get_sections(cls):
 
-        my_section = Sections.get_sections()
+        my_sections = DAL_Sections.all_sections(limit=25)
 
-        return my_section
+        return my_sections
 
     @classmethod
-    def create_section(cls):
-        # ( section_id, doc_text, date_in)
+    def single_section(cls,sec_id):
+        section = DAL_Sections.section_by_id(sec_id=sec_id)
 
-        doc_text = 'abc'
-        date_in = '2015-01-01'
-        task = (doc_text,date_in)
-        doc_id = 1
-        new_section_id = Sections.create_section(task)
+        return section
 
-        return new_section_id
+    @classmethod
+    def create_section(cls,section_data):
+        # TODO: Validate
+        vm = CreateSectionViewModel(section_data)
+        vm.compute_details()
+        if vm.errors:
+            return "400 " + vm.error_msg
+
+        try:
+            Section = DAL_Sections.add_section(vm.Section)
+            # return Response(status=201, json_body=Document.to_dict())
+            return "201 " + Section.doc_id
+        except Exception as x:
+            # return Response(status=400, body='Could not save car.')
+            return "400 " + "Could not save section."
+
+    @classmethod
+    def update_section(cls,sec_id,section_data): # (int,json_body)
+
+        # get the section object by sec_id
+        section = DAL_Sections.section_by_id(sec_id)
+
+        if not section:
+            msg = "404 The section with id '{}' was not found.".format(sec_id)
+            return msg
+
+        # Validate
+        vm = UpdateSectionViewModel(section_data,sec_id)
+        vm.compute_details()
+        if vm.errors:
+            return "400 " + vm.error_msg
+        try:
+            DAL_Sections.update_section(vm.Section)
+            return "204 Section updated successfully."
+        except:
+            return "400 Could not update section."

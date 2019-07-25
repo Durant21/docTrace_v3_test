@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="/static/scripts/documents.js"></script>
 
 <!--?   libraries for bootstrap buttons-->
   <meta charset="utf-8">
@@ -73,8 +73,27 @@
     }
   </style>
 </head>
-<body>
+<body onload="loc_page_load()">
 
+<script>
+    function loc_page_load()
+    {
+        set_not_visible("divCreateDocument");
+    }
+
+    function set_visible(aDocName) {
+         t =  document.getElementById(aDocName);
+         t.style.display = "block";
+    }
+
+
+    function set_not_visible(aDocName) {
+         t =  document.getElementById(aDocName);
+         t.style.display = "none";
+    }
+
+
+</script>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -102,7 +121,8 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav" align="left">
-        <strong><u>Documents</u></strong><br>
+        <strong><u>Documents</u></strong>
+        <u><label onclick="set_visible('divCreateDocument');">Create</label></u> <br>
         <strong>doc7</strong><br>
         <strong>doc11</strong><br>
         <strong>doc7</strong><br>
@@ -130,16 +150,26 @@
             onclick="changeDimensions()"/>
            -->
 
+<div id="divCreateDocument">
+     <div class="container">
 
-<div class="container">
-        <button type="button" class="btn">Create Document</button>
-        <!--?  <button type="button" class="btn btn-default">Default</button>-->
-        <!--?  <button type="button" class="btn btn-primary">Primary</button>-->
-        <!--?  <button type="button" class="btn btn-success">Success</button>-->
-        <!--?  <button type="button" class="btn btn-info">Info</button>-->
-        <!--?  <button type="button" class="btn btn-warning">Warning</button>-->
-        <!--?  <button type="button" class="btn btn-danger">Danger</button>-->
-        <!--?  <button type="button" class="btn btn-link">Link</button>-->
+          <form>
+              <button type="button" class="btn">Create Document</button>
+            <div class="form-group">
+                <br>
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" style="width:50%" id="txtDocName">
+                <button type="button" class="btn" onclick="create_document()">Save</button>
+            </div>
+          </form>
+            <!--?  <button type="button" class="btn btn-default">Default</button>-->
+            <!--?  <button type="button" class="btn btn-primary">Primary</button>-->
+            <!--?  <button type="button" class="btn btn-success">Success</button>-->
+            <!--?  <button type="button" class="btn btn-info">Info</button>-->
+            <!--?  <button type="button" class="btn btn-warning">Warning</button>-->
+            <!--?  <button type="button" class="btn btn-danger">Danger</button>-->
+            <!--?  <button type="button" class="btn btn-link">Link</button>-->
+    </div>
 </div>
 
 <script>
@@ -151,6 +181,7 @@
 <div class="container">
 <!--?  <h2>Form control: textarea</h2>-->
 <!--?  <p>The form below contains a textarea for comments:</p>-->
+    <label id="lblStatus">uuuu</label>
   <form>
     <div class="form-group">
       <label for="comment">Content:</label>
