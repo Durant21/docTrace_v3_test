@@ -43,6 +43,7 @@ def init_db(config):
 def configure_renderers(config):
     json_renderer = JSON(indent=4)
     json_renderer.add_adapter(Document, lambda d, _: d.to_dict())
+    json_renderer.add_adapter(Section, lambda d, _: d.to_dict())
     config.add_renderer('json',json_renderer)
 
 

@@ -40,10 +40,11 @@ class DAL_Sections:
             session = DbSessionFactory.create_session()
 
             db_section = Section()
-            db_section.doc_id = section.doc_id
-            db_section.doc_name = section.doc_name
+            # db_section.sec_id = section.sec_id
+            db_section.sec_text = section.sec_text
+            db_section.sec_date_in = parse(section.sec_date_in)
 
-            session.add(section)
+            session.add(db_section)
             session.commit()
 
             return db_section
@@ -53,21 +54,24 @@ class DAL_Sections:
 
     @classmethod
     def update_section(cls, section_data):
-        session = DbSessionFactory.create_session()
+        try:
+            session = DbSessionFactory.create_session()
 
-        db_section = session.query(Section).filter(Section.sec_id == section_data.sec_id).first()
-        db_section.sec_text = section_data.sec_text
-        db_section.sec_date_in = section_data.sec_date_in
+            db_section = session.query(Section).filter(Section.sec_id == section_data.sec_id).first()
+            db_section.sec_text = section_data.sec_text
+            db_section.sec_date_in = parse(section_data.sec_date_in)
 
-        session.commit()
+            session.commit()
 
-        return db_section
+            return db_section
+        except Exception as e:
+            print(e)
 
 
     @classmethod
     def delete_section(cls, sec_id):
         session = DbSessionFactory.create_session()
-        db_section = session.query(Section).filter(Section.doc_id == sec_id).first()
+        db_section = session.query(Section).filter(Section.sec_id == sec_id).first()
 
         if not db_section:
             return

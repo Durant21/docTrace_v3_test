@@ -12,7 +12,7 @@ from pyramid.view import view_config
              accept='application/json',
              renderer='json')
 def all_sections(_):
-    sections =  BLL_Sections.get_sections()
+    sections = BLL_Sections.get_sections()
 
     return sections
 

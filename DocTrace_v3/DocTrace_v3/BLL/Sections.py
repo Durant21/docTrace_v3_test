@@ -28,7 +28,7 @@ class BLL_Sections:
         try:
             Section = DAL_Sections.add_section(vm.Section)
             # return Response(status=201, json_body=Document.to_dict())
-            return "201 " + Section.doc_id
+            return "201 " + Section.sec_id
         except Exception as x:
             # return Response(status=400, body='Could not save car.')
             return "400 " + "Could not save section."

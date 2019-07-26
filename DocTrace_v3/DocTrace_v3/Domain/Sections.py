@@ -16,5 +16,5 @@ class Section(SqlAlchemyBase):
         return {
             'sec_id': self.sec_id,
             'sec_text': self.sec_text,
-            'sec_date_in': self.sec_date_in,
+            'sec_date_in': self.sec_date_in.isoformat(),
         }
