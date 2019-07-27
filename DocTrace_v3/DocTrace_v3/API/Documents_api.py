@@ -30,9 +30,9 @@ def single_document(request: Request):
              request_method='POST')
 def create_document(request: Request):
     doc_data = request.json_body
-    doc_id = BLL_Documents.create_document(doc_data)
+    r = BLL_Documents.create_document(doc_data)
 
-    return Response(status=200, body=doc_id)
+    return Response(status=r["status"], body=r["msg"])
 
 
 @view_config(route_name='document_api',

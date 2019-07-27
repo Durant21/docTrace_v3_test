@@ -26,15 +26,19 @@ class BLL_Documents:
         vm = CreateDocumentViewModel(doc_data)
         vm.compute_details()
         if vm.errors:
-            return "400 " + vm.error_msg
+            # return "400 " + vm.error_msg
+            return {"status": "400", "msg": vm.error_msg}
 
         try:
             Document = DAL_Documents.add_document(vm.Document)
             # return Response(status=201, json_body=Document.to_dict())
-            return "201 " + Document.doc_id
+            # return "201 " + Document.doc_id
+            return {"status": "201", "msg": Document.doc_id}
+
         except Exception as x:
             # return Response(status=400, body='Could not save car.')
-            return "400 " + "Could not save document."
+            # return "400 " + "Could not save document."
+            return {"status": "400", "msg": "Could not save document."}
 
     @classmethod
     def update_document(cls,doc_id,doc_data): # (int,json_body)

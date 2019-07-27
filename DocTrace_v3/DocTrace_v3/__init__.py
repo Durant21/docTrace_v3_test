@@ -28,6 +28,8 @@ def main(global_config, **settings):
         config.add_route('sections_api','/api/sections')
         config.add_route('section_api','/api/section/{sec_id}')
         config.add_route('sections1_api','/api/create_section')
+        config.add_route('groups_api','/api/groups')
+        config.add_route('group_api', '/api/group/{doc_id}')
 
         config.scan()
     return config.make_wsgi_app()
@@ -44,6 +46,7 @@ def configure_renderers(config):
     json_renderer = JSON(indent=4)
     json_renderer.add_adapter(Document, lambda d, _: d.to_dict())
     json_renderer.add_adapter(Section, lambda d, _: d.to_dict())
+    json_renderer.add_adapter(Group, lambda d, _: d.to_dict())
     config.add_renderer('json',json_renderer)
 
 

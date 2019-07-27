@@ -26,6 +26,6 @@ class CreateGroupViewModel(ViewModelBase):
                 doc_id=doc_id,
                 sec_id=sec_id
             )
-            self.Document = group
+            self.Group = group
 
 
