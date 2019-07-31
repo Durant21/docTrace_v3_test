@@ -29,8 +29,8 @@ def single_section(request: Request):
 @view_config(route_name='sections_api',
              request_method='POST')
 def create_section(request: Request):
-    section_data = request.json_body
-    r = BLL_Sections.create_section(section_data)
+    j_body = request.json_body
+    r = BLL_Sections.create_section(j_body)
 
     return Response(status=r['status'], body=r['msg'])
     # return Response(status=200, body=sec_id)

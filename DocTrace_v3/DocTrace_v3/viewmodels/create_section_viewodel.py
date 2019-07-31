@@ -13,6 +13,7 @@ class CreateSectionViewModel(ViewModelBase):
         sec_id = self.data_dict.get('sec_id')
         sec_text = self.data_dict.get('sec_text')
         sec_date_in = self.data_dict.get('sec_date_in')
+        # doc_id = self.data_dict.get('doc_id')
 
         if not sec_text:
             self.errors.append("Section Text is required content.")

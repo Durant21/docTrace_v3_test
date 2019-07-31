@@ -9,7 +9,7 @@ class Doc_Group_Sec:
         self.doc_name = name
 
     def add_group_id(self, id):
-        self.doc_id = id
+        self.group_id = id
 
     def add_sec_text(self,txt):
         self.sec_text = txt

@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39bf9ba4-8dae-4eca-99e3-712af4046c60" name="Default Changelist" comment="" />
+    <list default="true" id="39bf9ba4-8dae-4eca-99e3-712af4046c60" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/API/Sections_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/API/Sections_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/BLL/Sections.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/BLL/Sections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/Domain/Doc_Group_Sec.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/Domain/Doc_Group_Sec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/db/myDocuments.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/db/myDocuments.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/static/scripts/documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/static/scripts/documents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/templates/document_layout.pt" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/templates/document_layout.pt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/viewmodels/create_section_viewodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DocTrace_v3/viewmodels/create_section_viewodel.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1OTnTerq8u1BmE3SIPW5sBg4P3X" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -36,7 +51,22 @@
       <updated>1564010463412</updated>
       <workItem from="1564010474957" duration="4000" />
       <workItem from="1564010511863" duration="4000" />
+      <workItem from="1564522451171" duration="8000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
