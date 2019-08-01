@@ -4,6 +4,7 @@ class Doc_Group_Sec:
         self.group_id = ''
         self.doc_name = ''
         self.sec_text = ''
+        self.sec_id = ''
 
     def add_doc_name(self, name):
         self.doc_name = name
@@ -14,10 +15,14 @@ class Doc_Group_Sec:
     def add_sec_text(self,txt):
         self.sec_text = txt
 
+    def add_sec_id(self,id):
+        self.sec_id = id
+
     def to_dict(self):
         return {
             'group_id': self.group_id,
             'doc_id': self.doc_id,
             'doc_name': self.doc_name,
             'sec_text': self.sec_text,
+            'sec_id': self.sec_id,
         }

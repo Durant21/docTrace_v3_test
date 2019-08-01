@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/scripts/documents.js"></script>
 
 <!--?   libraries for bootstrap buttons-->
   <meta charset="utf-8">
@@ -34,6 +33,29 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.2/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.2/jquery.jqgrid.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!-- charts -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--?libraries for knockout dropdowns  -->
+<!--?          <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" type = "text/javascript"></script> -->
+    <script src="/static/scripts/knockout-3.4.2.js"></script>
+
+    <script type="text/javascript" src="/static/scripts/documents.js"></script>
+
+
+
+
 
 
     <style>
@@ -85,7 +107,8 @@
         set_not_visible("divCreateDocument");
         set_not_visible("btnAddContent");
         set_not_visible("divNewContent");
-        set_not_visible("divCurrentContent");_
+        set_not_visible("divCurrentContent");
+        populateContractorsList();
     }
 
 
@@ -135,13 +158,14 @@
         <strong><u>Documents</u></strong>
         <u><label onclick="open_new_doc_dialog()">Create</label></u> <br>
 
-        <strong>doc7</strong><br>
-        <strong>doc11</strong><br>
-        <strong>doc7</strong><br>
-
         <u><label onclick="open_doc_sections('924be972-eee8-4fcf-8610-03d9e12fcd79')">a2</label></u> <br>
         <u><label onclick="open_doc_sections('d215f5d9-3613-49b7-bdfd-4d3423d40754')">aa</label></u> <br>
         <u><label onclick="open_doc_sections('6331d581-a87d-4818-bbea-069184d3e085')">a1</label></u> <br>
+
+        <select class="" id="ddlAdminContractors" style="height:300px; width: 410px !important; min-width: 100px;
+                max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
+                name="D7" multiple>
+        </select>
 
         <div class="container">
   <h5>Basic List Group</h5>
@@ -198,7 +222,24 @@
     <label id="lblStatus">status...</label>
    <br> ---- <button type="button" id="btnAddContent" class="btn" onclick="open_new_content_dialog('divNewContent')" >Add Content</button> ----
     <div id="divNewContent" class="form-group">
-      <label for="comment">Content:</label>
+        <table style="width:350px">
+            <tr>
+                <td>
+                    <select class="" id="ddlDocuments_NewContent" style="width: 410px !important; min-width: 100px;
+                            max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
+                            name="D7" >
+                    </select>
+                </td>
+                <td style="horiz-align: left"><u>view</u></td>
+                <td>
+                    <button type="button" id="btnAddDocToContent" class="btn" onclick="addContentToDoc()" >Add</button>
+                </td>
+            </tr>
+        </table>
+      <label for="comment">Existing Content:</label>
+
+        <br>
+        <label for="comment">New Content:</label>
       <textarea class="form-control" rows="5" id="txt_new_content">hHeader information....</textarea>
         <button type="button" class="btn btn-warning">Edit</button>
         <button type="button" class="btn btn-danger">Delete</button>

@@ -7,6 +7,7 @@ from dateutil.parser import parse
 
 from DocTrace_v3.data.db_factory import DbSessionFactory
 from DocTrace_v3.Domain.Sections import Section
+from DocTrace_v3.Domain.Groups import Group
 
 class DAL_Sections:
     __section_data = {}
@@ -30,6 +31,14 @@ class DAL_Sections:
     def section_by_id(cls, sec_id):
         session = DbSessionFactory.create_session()
         section = session.query(Section).filter(Section.sec_id == sec_id).first()
+        session.close()
+
+        return section
+
+    @classmethod
+    def section_by_doc(cls, doc_id):
+        session = DbSessionFactory.create_session()
+        section = session.query(Group).filter(Group.doc_id == doc_id).all()
         session.close()
 
         return section

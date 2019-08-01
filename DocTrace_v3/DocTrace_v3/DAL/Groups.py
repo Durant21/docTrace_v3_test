@@ -44,6 +44,7 @@ class DAL_Groups:
             u.add_group_id(g.group_id)
             u.add_doc_name(d.doc_name)
             u.add_sec_text(s.sec_text)
+            u.add_sec_id(s.sec_id)
 
             docs.append(u.to_dict())
 

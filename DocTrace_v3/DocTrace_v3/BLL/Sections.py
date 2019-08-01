@@ -21,6 +21,15 @@ class BLL_Sections:
         return {"status": "200", "msg": section}
 
     @classmethod
+    def get_sections_by_doc(cls,doc_id):
+        section = DAL_Sections.section_by_doc(doc_id=doc_id)
+
+        # return section
+
+        return {"status": "200", "msg": section}
+
+
+    @classmethod
     def create_section(cls,j_body):
         # TODO: Validate
         section_data = {}

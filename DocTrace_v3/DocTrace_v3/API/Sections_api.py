@@ -26,6 +26,17 @@ def single_section(request: Request):
 
     return section
 
+# @view_config(route_name='sections_by_doc_api',
+#              request_method='GET',
+#              renderer='json')
+# def get_sections_by_doc(request: Request):
+#     sec_id = request.matchdict.get('doc_id')
+#     section = BLL_Sections.single_section(doc_id)
+#
+#     return section
+
+
+
 @view_config(route_name='sections_api',
              request_method='POST')
 def create_section(request: Request):

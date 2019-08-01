@@ -1,6 +1,46 @@
 function getUrlBase() {
     return "http://localhost:6543"
 }
+function sendMe() {
+
+}
+var myViewModel;
+$(document).ready(function(){
+    var dbAdminContractors = [];
+    myViewModel = {
+        dbAdminContractors: ko.observableArray(dbAdminContractors),
+        sendMe: sendMe,
+        selectedChoice: ko.observable(),
+        onChange: function () {
+            //alert("test");
+        }
+    }
+    ko.applyBindings(myViewModel);
+
+    jQuery("#ddlAdminContractors").on('click', AdminSiteClicked);
+});
+
+
+
+function AdminSiteClicked() {
+    var strDoc_id = $("#ddlAdminContractors option:selected").val();
+    // alert(strDoc_id);
+
+    // set hidden tag to current value
+    var element1 = document.getElementById("txt_doc_id");
+    if (element1)
+    {
+        element1.value = strDoc_id;
+    }
+
+    // show the sections attached to this Document
+    open_doc_sections(strDoc_id);
+    set_visible("btnAddContent");
+
+    // close the dialog (if open)
+    set_not_visible("divNewContent");
+
+}
 
 function create_document() {
     //alert('inside create_doc()')
@@ -121,8 +161,8 @@ function create_content() {
                 }
             }
 
-            //generateSectionsDiv();
-
+            // close the dialog
+           set_not_visible('divNewContent');
         },
 
         error: function (xhr) {
@@ -234,7 +274,6 @@ function clear_outer_div() {
 
 }
 
-
 function set_not_visible(aDocName) {
      t =  document.getElementById(aDocName);
      t.style.display = "none";
@@ -244,7 +283,6 @@ function set_visible(aDocName) {
      t =  document.getElementById(aDocName);
      t.style.display = "block";
 }
-
 
 function open_doc_sections(strDoc_id) {
     //alert(aDocName);
@@ -298,4 +336,91 @@ function open_doc_sections(strDoc_id) {
     });
 
    // http://localhost:6543/api/group/6331d581-a87d-4818-bbea-069184d3e085
+}
+
+function populateContractorsList() {
+    var hSessionID = $("#hSessionID").val();
+    strContractorId = '0';
+    $.ajax({
+        type: "GET",
+        url: getUrlBase() + "/api/documents",
+        contentType: "text/plain",
+        // dataType: "json",
+
+        beforeSend: function () {
+            // SetBusy();
+        },
+
+        success: function (data) {
+            // SetNotBusy();
+            var jsonObj = data;
+            myViewModel.dbAdminContractors(jsonObj);
+           if (jsonObj.length == 0) {
+
+            }
+        },
+        error: function (err) {
+            // SetNotBusy();
+            alert("1aError : " + err.status + "   " + err.statusText);
+        }
+    });
+}
+
+function addContentToDoc() {
+
+    var element1 = document.getElementById("txt_doc_id");
+    if (element1)
+    {
+        str_doc_id = element1.value;
+    }
+
+    // var elementNewContent = document.getElementById("txt_new_content");
+    // if (elementNewContent)
+    // {
+    //     str_new_content = elementNewContent.value;
+    // }
+    //
+    var strDoc_id_new_content = $("#ddlDocuments_NewContent option:selected").val();
+    var d = new Date();
+    var n = d.toLocaleDateString();
+
+    var new_content = '{' +
+        '"doc_id": "' + str_doc_id + '",' +
+        '"append_doc_id": "' + strDoc_id_new_content + '"' +
+        '}';
+
+    $.ajax({
+        type: "POST",
+        url: getUrlBase() + "/api/doc_group_sections",
+        data: new_content,
+        // dataType: "json",
+        contentType: "text/plain",
+
+        beforeSend: function () {
+            // turnBothOff("EncounterSuccessResult", "EncounterErrorInSummation");
+            // alert(getUrlBase() + "/api/Documents")
+        },
+
+        success: function (response) {
+            var lblDocName = document.getElementById("lblDocName");
+            lblDocName.innerHTML = response;
+
+            recs = 0;
+            // if no records returned, indicate "No values"
+            if (recs == 0) {
+                var e_lblStatus = document.getElementById("lblStatus");
+                if (e_lblStatus) {
+                    e_lblStatus.innerHTML = "Added content...";
+                }
+            }
+
+            // close the dialog
+           set_not_visible('divNewContent');
+        },
+
+        error: function (xhr) {
+            alert("ERROR");
+        }
+    });
+
 }
