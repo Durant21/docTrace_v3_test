@@ -4,6 +4,7 @@ from pyramid.renderers import JSON
 from DocTrace_v3.Domain.Documents import Document
 from DocTrace_v3.Domain.Sections import Section
 from DocTrace_v3.Domain.Groups import Group
+from DocTrace_v3.Domain.Doc_Parent import DocumentParent
 from pyramid.events import NewRequest
 
 

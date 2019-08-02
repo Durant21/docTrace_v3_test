@@ -1,6 +1,7 @@
 from DocTrace_v3.DAL.Sections import DAL_Sections
 from DocTrace_v3.BLL.Groups import BLL_Groups
 from DocTrace_v3.DAL.Groups import DAL_Groups
+from DocTrace_v3.DAL.Doc_Parent import DAL_Doc_Parent
 from DocTrace_v3.viewmodels.create_section_viewodel import CreateSectionViewModel
 from DocTrace_v3.viewmodels.update_section_viewmodel import UpdateSectionViewModel
 
@@ -9,6 +10,7 @@ class BLL_DocGroupSections:
     @classmethod
     def attach_sections(cls,j_body):
         # verify doc_id, sec_id
+        new_group_id = ""
 
         section_data = {}
         section_data.update(append_doc_id=j_body['append_doc_id'])
@@ -31,6 +33,10 @@ class BLL_DocGroupSections:
             r = BLL_Groups.create_group(group_data)
             group_id = r["msg"]
 
+        # With a Doc's sections linked to another Doc, note that relationship in the Doc_Parent table
+        doc_data = {"doc_id": doc_id,
+                    "parent_id": append_doc_id,
+                    "relationship": "direct"}  # direct/copy
+        r = DAL_Doc_Parent.create_doc_parent(doc_data)
+        return {"status": "201", "msg": r.doc_parent_id}
 
-        # TODO: Validate
-        return None

@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3770783-807f-4c03-b39f-abb37c186632" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/API/DocGroupSections_api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/DocGroupSections.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/knockout-3.1.0.debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/knockout-3.1.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/knockout-3.4.2.debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/knockout-3.4.2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/Doc_Parent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/DAL/Doc_Parent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/Domain/Doc_Parent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/trace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/trace_bk1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocTrace_v3/viewmodels/create_document_parent_viewmodel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/API/Sections_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/API/Sections_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/BLL/Documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/Documents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/BLL/Sections.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/Sections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DAL/Groups.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DAL/Groups.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/DAL/Sections.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/DAL/Sections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocTrace_v3/Domain/Doc_Group_Sec.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/Domain/Doc_Group_Sec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/BLL/DocGroupSections.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/BLL/DocGroupSections.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocTrace_v3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/call_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/call_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocTrace_v3/db/myDocuments.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/db/myDocuments.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocTrace_v3/static/scripts/documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/static/scripts/documents.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocTrace_v3/templates/document_layout.pt" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/templates/document_layout.pt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocTrace_v3/templates/trace_layout.pt" beforeDir="false" afterPath="$PROJECT_DIR$/DocTrace_v3/templates/trace_layout.pt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,35 +50,14 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="myDocuments" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="Document: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="myDocuments" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="Groups: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="myDocuments" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="Sections: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -96,19 +72,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DocTrace_v3/static/scripts" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DocTrace_v3/static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DocTrace_v3/static/scripts" />
       <recent name="$PROJECT_DIR$/DocTrace_v3/Domain" />
       <recent name="$PROJECT_DIR$/DocTrace_v3/API" />
       <recent name="$PROJECT_DIR$/DocTrace_v3/viewmodels" />
       <recent name="$PROJECT_DIR$/DocTrace_v3/DAL" />
-      <recent name="$PROJECT_DIR$/DocTrace_v3/BLL" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/DocTrace_v3/static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,12 +175,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1951d978" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6b42688" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1951d978" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@12b18095" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6b42688" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@744d419d" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -236,7 +212,10 @@
       <workItem from="1564517649825" duration="1858000" />
       <workItem from="1564522472362" duration="13506000" />
       <workItem from="1564592126415" duration="17942000" />
-      <workItem from="1564624981749" duration="4793000" />
+      <workItem from="1564624981749" duration="6358000" />
+      <workItem from="1564680848623" duration="15119000" />
+      <workItem from="1564764196282" duration="633000" />
+      <workItem from="1564765763390" duration="8078000" />
     </task>
     <servers />
   </component>
@@ -284,7 +263,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/call_data.py</url>
-          <line>44</line>
+          <line>45</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -304,7 +283,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/call_data.py</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -324,7 +303,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/call_data.py</url>
-          <line>72</line>
+          <line>73</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -334,13 +313,8 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/call_data.py</url>
-          <line>74</line>
+          <line>75</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DocTrace_v3/API/Groups_api.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/API/Sections_api.py</url>
@@ -369,29 +343,49 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/BLL/DocGroupSections.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="32" />
+          <line>32</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DocTrace_v3/call_data.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DocTrace_v3/BLL/Doc_Parent.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DocTrace_v3/BLL/Doc_Parent.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DocTrace_v3/DAL/Doc_Parent.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DocTrace_v3/BLL/DocGroupSections.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="33" />
+          <line>39</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/DocTrace_v3/static/scripts/documents.js</url>
-          <line>321</line>
+          <line>359</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/DocTrace_v3/static/scripts/documents.js</url>
-          <line>281</line>
+          <line>310</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DocTrace_v3$call_data.coverage" NAME="call_data Coverage Results" MODIFIED="1564420320607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DocTrace_v3" />
-    <SUITE FILE_PATH="coverage/DocTrace_v3$DocTrace_v3.coverage" NAME="DocTrace_v3 Coverage Results" MODIFIED="1564629971609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/DocTrace_v3$call_data.coverage" NAME="call_data Coverage Results" MODIFIED="1564698434281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DocTrace_v3" />
+    <SUITE FILE_PATH="coverage/DocTrace_v3$DocTrace_v3.coverage" NAME="DocTrace_v3 Coverage Results" MODIFIED="1564765775851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
   </component>
 </project>

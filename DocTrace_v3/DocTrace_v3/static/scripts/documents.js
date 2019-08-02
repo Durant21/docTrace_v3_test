@@ -115,6 +115,35 @@ function create_document() {
     });
 }
 
+function get_document_name(str_doc_id) {
+
+    $.ajax({
+        type: "GET",
+        url: getUrlBase() + "/api/document/" + str_doc_id,
+        //data: new_content,
+        // dataType: "json",
+        contentType: "text/plain",
+
+        beforeSend: function () {
+            // turnBothOff("EncounterSuccessResult", "EncounterErrorInSummation");
+            // alert(getUrlBase() + "/api/Documents")
+        },
+
+        success: function (response) {
+            var lblDocName = document.getElementById("lblDocName");
+            lblDocName.innerHTML = response['doc_name'];
+
+            recs = 0;
+
+        },
+
+        error: function (xhr) {
+            alert("ERROR");
+        }
+    });
+
+}
+
 function create_content() {
 
     var element1 = document.getElementById("txt_doc_id");
@@ -290,6 +319,10 @@ function open_doc_sections(strDoc_id) {
     set_not_visible("divCurrentContent");
     set_not_visible('divCreateDocument');
     set_visible("outerDiv");
+
+    // set Doc name label
+    get_document_name(strDoc_id);
+
     $.ajax({
         type: "GET",
         url: getUrlBase() + "/api/group/" + strDoc_id,
@@ -311,9 +344,14 @@ function open_doc_sections(strDoc_id) {
             }
 
             var lblDocName = document.getElementById("lblDocName");
-            lblDocName.innerHTML = response;
+
             var arrayLength = response.length;
+            if (arrayLength == 0) {
+              //lblDocName.innerHTML = "No content.";
+            }
+
             for (var i = 0; i < arrayLength; i++) {
+             // lblDocName.innerHTML = response[i].doc_name;
                 console.log(response[i].doc_name);
                 //Do something
                 sec_text = response[i].sec_text;

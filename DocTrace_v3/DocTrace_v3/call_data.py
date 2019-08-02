@@ -5,6 +5,7 @@ from DocTrace_v3.data.db_factory import DbSessionFactory
 
 from DocTrace_v3.BLL.Sections import BLL_Sections
 from DocTrace_v3.BLL.Groups import BLL_Groups
+from DocTrace_v3.BLL.Doc_Parent import BLL_Doc_Parent
 
 # def test_call_groups():
 #    r = BLL_Groups.get_groups()
@@ -80,6 +81,13 @@ def test_get_doc_group():
     doc_data = {"doc_name": "new doc 2:22"}
     r = BLL_Groups.get_docs_groups()
 
+def test_create_doc_parent():
+    doc_data = {"doc_id": "1001",
+                "parent_id": "1002",
+                "relationship": "copy"}
+
+    r = BLL_Doc_Parent.create_doc_parent(doc_data)
+    print(r)
 
 def main():
     DbSessionFactory.global_init('myDocuments.sqlite')
@@ -99,7 +107,12 @@ def main():
 
     # TEST GROUPS
     # test_create_group()
-    test_get_doc_group()
+    # test_get_doc_group()
+
+    # TEST DOC_PARENT
+    test_create_doc_parent();
+
+
 
 if __name__ == "__main__":
     main()
