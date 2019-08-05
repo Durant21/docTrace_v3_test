@@ -32,6 +32,7 @@ def main(global_config, **settings):
         config.add_route('groups_api','/api/groups')
         config.add_route('group_api', '/api/group/{doc_id}')
         config.add_route('doc_group_sections_api','/api/doc_group_sections')
+        config.add_route('document_parent_api','/api/document_parent/{doc_id}')
 
         config.scan()
     return config.make_wsgi_app()

@@ -154,10 +154,37 @@ traces2 = [
 
 
 function buildTraceDiagram(centerText,traces) {
+      //       var paL1 = new Array ();
+      // var paL2 = new Array ();
+      // var paR1 = new Array ();
+      // var paR2 = new Array ();
+     // var myPts = new Array ();
+     // var superArray = new Array ();
+      // var firstArrayL = new Array ();
+      //var firstArrayR = new Array ();
+
+
+    // clear the circles left over from previous click by emptying the superArray.
+    superArray = [];
+
     svgHeight = document.getElementById('secondsvg').getAttribute("height");
     svgWidth = document.getElementById('secondsvg').getAttribute("width");
-    document.getElementById('mysvg').style.visibility = 'hidden';
-    document.getElementById('cont').style.visibility = 'hidden';
+
+    secondsvg = document.getElementById('secondsvg');
+    secondsvg.parentNode.replaceChild(secondsvg.cloneNode(false), secondsvg);
+    $("#secondsvg").empty();
+
+    // contsvg = document.getElementById('cont');
+    // contsvg.parentNode.replaceChild(contsvg.cloneNode(false), contsvg);
+    // $("#cont").empty();
+    //
+    // $("svg").find("*").not("rect, g").remove();
+    //     mysvg = document.getElementById('mysvg')
+    // if (mysvg) {
+    //     // $("#mysvg").empty();
+    // }
+
+
 
       //alert( svgWidth);
       var pCenterX = svgWidth/2;

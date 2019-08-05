@@ -52,7 +52,7 @@
     <script src="/static/scripts/knockout-3.4.2.js"></script>
 
     <script type="text/javascript" src="/static/scripts/documents.js"></script>
-
+    <script type="text/javascript" src="/static/scripts/trace.js"></script>
 
 
 
@@ -246,12 +246,42 @@
         <button type="button" id="btnSaveNewContent" class="btn" onclick="create_content()" >Save</button>
     </div>
 
-    <div id="outerDiv" style="background-color: white">
+    <div id="outerDiv" style="background-color: white; width: 80%">
 
     </div>
 
-    <div id="traceDiv" style="background-color: lightgray">
-trace div
+    <div id="traceDiv" style="background-color: lavender; width: 80%; height: 30%">
+<!--?trace div-->
+         <svg id="secondsvg" height="200" width="1000" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- <line x1= "10" y1= "10"
+                  x2="490" y2="490,"
+                  style="stroke:rgb(255,90,50); stroke-width:5" -->
+            />
+        </svg>
+
+        <div id="info" height="400" width="1400">
+<!--?            info...-->
+            <br>
+        </div>
+
+        <svg id="cont" height="10" width="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+           rrrr     <!-- <line x1= "10" y1= "10"
+                  x2="490" y2="490,"
+                  style="stroke:rgb(255,90,50); stroke-width:5" -->
+            />
+        </svg>
+
+         <svg id="mysvg" width="700" height="100" style="background-color: lightgrey">
+        <!-- <rect id="rect1" x="10" y="10" width="50" height="80"
+              style="stroke:#000000; fill:none;"/> -->
+              <g id="myg" class="links"></g>
+              <!-- <line x1= "10" y1= "10"
+              x2="490" y2="490"
+              style="stroke:rgb(255,90,50); stroke-width:5" -->
+        />
+         </svg>
+
+
     </div>
 
      <div id="divCurrentContent" class="form-group">
@@ -264,14 +294,14 @@ trace div
 
         <hr>
     </div>
-    <div class="col-sm-2 sidenav">
+<!--?    <div class="col-sm-2 sidenav">-->
 <!--?      <div class="well">-->
 <!--?        <p>ADS</p>-->
 <!--?      </div>-->
 <!--?      <div class="well">-->
 <!--?        <p>ADS</p>-->
 <!--?      </div>-->
-    </div>
+<!--?    </div>-->
   </div>
 </div>
 

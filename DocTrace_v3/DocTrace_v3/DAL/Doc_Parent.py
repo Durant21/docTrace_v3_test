@@ -7,6 +7,8 @@ from dateutil.parser import parse
 
 from DocTrace_v3.data.db_factory import DbSessionFactory
 from DocTrace_v3.Domain.Doc_Parent import DocumentParent
+from DocTrace_v3.Domain.Documents import Document
+from DocTrace_v3.Domain.Documents import Document
 
 class DAL_Doc_Parent:
     __section_data = {}
@@ -26,13 +28,45 @@ class DAL_Doc_Parent:
     #     return sections
     #
     #
-    # @classmethod
-    # def section_by_id(cls, sec_id):
-    #     session = DbSessionFactory.create_session()
-    #     section = session.query(Section).filter(Section.sec_id == sec_id).first()
-    #     session.close()
-    #
-    #     return section
+    @classmethod
+    def doc_parent_by_doc_id(cls, doc_id):
+        session = DbSessionFactory.create_session()
+        # section = session.query(Section).filter(Section.sec_id == sec_id).first()
+        u = 0;
+        docs = []
+        # for dp, d1a, d2a in session.query(DocumentParent, d1, d2).\
+        #         filter(DocumentParent.doc_id == d1.doc_id,\
+        #                DocumentParent.parent_id == d2.doc_id).all():
+        #                # d2.doc_id == doc_id).all():
+
+        # for dp, d1a, d2a in session.query(DocumentParent, d1, d2). \
+        #         filter(DocumentParent.doc_id == d1.doc_id,\
+        #                DocumentParent.parent_id == d2.doc_id).all():
+        q = (session.query(DocumentParent, Document,Document)
+             .filter(DocumentParent.doc_id == Document.doc_id)
+             .filter(DocumentParent.parent_id == Document.doc_id)
+             # .filter(User.email == 'someemail')
+             .all())
+
+        u = u + 1
+
+        # print("relationship: {} doc_name: {} doc_name: {}".format(dp.relationship, d1a.doc_name))
+        print("relationship: {} doc_name: {} doc_name: {}".format(DocumentParent.relationship, d1.doc_name, d2.doc_name))
+            #
+            # u = Doc_Group_Sec()
+            #
+            # u.add_group_id(g.group_id)
+            # u.add_doc_name(d.doc_name)
+            # u.add_sec_text(s.sec_text)
+            # u.add_sec_id(s.sec_id)
+            #
+            # docs.append(u.to_dict())
+
+
+
+        session.close()
+
+        return u # docs
     #
     # @classmethod
     # def section_by_doc(cls, doc_id):

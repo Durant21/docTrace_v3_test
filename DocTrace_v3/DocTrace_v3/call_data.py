@@ -89,6 +89,12 @@ def test_create_doc_parent():
     r = BLL_Doc_Parent.create_doc_parent(doc_data)
     print(r)
 
+
+def test_get_doc_parent_report():
+    doc_id =  '8dd7e778-b79f-4055-8379-f614d084b4e4'
+    doc_parent_relationship = BLL_Doc_Parent.get_doc_parent_by_doc_id(doc_id=doc_id)
+    print(doc_parent_relationship)
+
 def main():
     DbSessionFactory.global_init('myDocuments.sqlite')
     # (test_call_groups())
@@ -110,7 +116,8 @@ def main():
     # test_get_doc_group()
 
     # TEST DOC_PARENT
-    test_create_doc_parent();
+    # test_create_doc_parent();
+    test_get_doc_parent_report();
 
 
 

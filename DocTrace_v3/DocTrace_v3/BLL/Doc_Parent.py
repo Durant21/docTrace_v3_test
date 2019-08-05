@@ -2,6 +2,7 @@
 from DocTrace_v3.viewmodels.create_document_parent_viewmodel import CreateDocumentParentViewModel
 
 from DocTrace_v3.DAL.Doc_Parent import DAL_Doc_Parent
+from DocTrace_v3.DAL.sql_Doc_Parent import Sql_Doc_Parent
 
 class BLL_Doc_Parent:
 
@@ -20,13 +21,14 @@ class BLL_Doc_Parent:
     #
     #     return {"status": "200", "msg": section}
     #
-    # @classmethod
-    # def get_sections_by_doc(cls, doc_id):
-    #     section = DAL_Sections.section_by_doc(doc_id=doc_id)
-    #
-    #     # return section
-    #
-    #     return {"status": "200", "msg": section}
+    @classmethod
+    def get_doc_parent_by_doc_id(cls, doc_id):
+        doc_parent_relationship = Sql_Doc_Parent.doc_parent_by_doc_id(doc_id=doc_id)
+
+        # return section
+
+        # return {"status": "200", "msg": section}
+        return doc_parent_relationship
 
     @classmethod
     def create_doc_parent(cls, j_body):

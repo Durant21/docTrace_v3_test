@@ -24,6 +24,7 @@ $(document).ready(function(){
 
 function AdminSiteClicked() {
     var strDoc_id = $("#ddlAdminContractors option:selected").val();
+
     // alert(strDoc_id);
 
     // set hidden tag to current value
@@ -35,12 +36,68 @@ function AdminSiteClicked() {
 
     // show the sections attached to this Document
     open_doc_sections(strDoc_id);
+
+    //open_doc_sections((strDoc_id => console.log('huzzah, I\'m done!')))
+    console.log('moving on...')
     set_visible("btnAddContent");
 
     // close the dialog (if open)
     set_not_visible("divNewContent");
 
+
+    // build TRACE
+    buildTraceArray(strDoc_id);
 }
+
+function buildTraceArray(str_doc_id) {
+
+    $.ajax({
+        type: "GET",
+        url: getUrlBase() + "/api/document_parent/" + str_doc_id,
+        //data: new_doc,
+        // dataType: "json",
+        contentType: "text/plain",
+
+        beforeSend: function () {
+            // turnBothOff("EncounterSuccessResult", "EncounterErrorInSummation");
+            // alert(getUrlBase() + "/api/Documents")
+        },
+
+        success: function (response) {
+           traces2 = [
+            ['','header 1','Doc 1'],
+            ['','footer 1','Doc 1']
+            ];
+
+           traces3 = [];
+
+           var i = 0;
+           for (i == 0; i < response.length; i++) {
+               anArray = [];
+               uu = response[i];
+               anArray[0] = uu['relationship'];
+               anArray[1] = uu['parent_doc_name'];
+               anArray[2] = uu['doc_name'];
+
+               traces3.push(anArray);
+           }
+
+           // var lblDocName = document.getElementById("lblDocName");
+            var strDocName = $("#ddlAdminContractors option:selected").text();
+            if (strDocName)
+            {
+                 centerDoc = strDocName;
+                 buildTraceDiagram(centerDoc,traces3);
+            }
+        },
+
+        error: function (xhr) {
+            alert("ERROR: buildTraceArray()");
+        }
+    });
+
+}
+
 
 function create_document() {
     //alert('inside create_doc()')
@@ -135,10 +192,13 @@ function get_document_name(str_doc_id) {
 
             recs = 0;
 
+            return response['doc_id'];
+
         },
 
         error: function (xhr) {
             alert("ERROR");
+            return "0";
         }
     });
 
