@@ -51,6 +51,7 @@ class Sql_Doc_Parent:
         c.execute('select dp.relationship, d2.doc_name as parent, d1.doc_name  from Document_Parent dp \
                     join Document d1 on dp.doc_id = d1.doc_id \
                     join Document d2 on dp.parent_id = d2.doc_id')
+                    # where d1.doc_id = "{}"'.format(doc_id))
 
         all_rows = c.fetchall()
         print('1):', all_rows)

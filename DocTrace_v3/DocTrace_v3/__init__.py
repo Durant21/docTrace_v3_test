@@ -21,6 +21,7 @@ def main(global_config, **settings):
 
         config.add_route('main','/main')
         config.add_route('trace','/trace')
+        config.add_route('trace1','/trace1')
         config.add_route('document','/document')
         config.add_route('documents_api','/api/documents')
         config.add_route('document_api','/api/document/{doc_id}')

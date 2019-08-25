@@ -1,6 +1,5 @@
 
 from DocTrace_v3.viewmodels.create_document_parent_viewmodel import CreateDocumentParentViewModel
-
 from DocTrace_v3.DAL.Doc_Parent import DAL_Doc_Parent
 from DocTrace_v3.DAL.sql_Doc_Parent import Sql_Doc_Parent
 
@@ -23,12 +22,20 @@ class BLL_Doc_Parent:
     #
     @classmethod
     def get_doc_parent_by_doc_id(cls, doc_id):
-        doc_parent_relationship = Sql_Doc_Parent.doc_parent_by_doc_id(doc_id=doc_id)
+        # doc_parent_relationship = Sql_Doc_Parent.doc_parent_by_doc_id(doc_id=doc_id)
+        docs = Sql_Doc_Parent.doc_parent_by_doc_id(doc_id=doc_id)
 
-        # return section
+        aList = [];
 
-        # return {"status": "200", "msg": section}
-        return doc_parent_relationship
+        for d in docs:
+            aDict = {}
+            aDict["relationship"] = d["relationship"]
+            aDict["doc_name"] = d["doc_name"]
+            aDict["parent_doc_name"] = d["parent_doc_name"]
+
+            aList.append(aDict)
+
+        return aList
 
     @classmethod
     def create_doc_parent(cls, j_body):

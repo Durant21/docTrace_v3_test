@@ -1,0 +1,369 @@
+<!--?<!DOCTYPE html metal:define-macro="layout">-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Trace1 Diagram</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <script src="/static/scripts/knockout-3.4.2.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    line {
+          cursor: pointer;
+        }
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100%;
+        padding: 15px;
+      }
+      .row.content {height:100%;}
+    }
+  </style>
+</head>
+<script>
+     traces2 = [
+            ['','header1','doc7'],
+            ['','footer1','doc7']
+            ];
+     centerDoc = 'doc7';
+       function buildIt() {
+          // buildTraceDiagram(centerDoc,traces2);
+           //alert('here');
+           populateDocumentList();
+       }
+
+
+function sendMe() {
+
+}
+
+function AdminSiteClicked() {
+// alert('aaa');
+//     var strDoc_id = $("#ddlAdminContractors option:selected").val();
+    var strDoc_id = $("#ddlAdminContractors option:selected").text();
+    var list_outer = [];
+
+
+    q = DATA1['links']
+    var i;
+    for (i = 0; i < q.length; i++) {
+      t = q[i];
+         for (var key in t) {
+            if (t.hasOwnProperty(key)) {
+              //alert(t[key].id);
+              //alert(t[key].msg);
+            }
+        }
+
+        LinkModule = t['LinkModule'];
+        Source  = t['Source'];
+        Target = t['Target'];
+        u = t[key].id
+
+        link_module = getLastString(LinkModule);
+        source = getLastString(Source);
+        target = getLastString(Target);
+
+        var list_inner = [];
+        list_inner.push(link_module);
+        list_inner.push(target);
+        list_inner.push(source);
+
+        list_outer.push(list_inner);
+    }
+
+    var traces5 = list_outer;
+    console.log(traces5);
+    // build TRACE
+    // strDoc_id = "48CFR970.5204-2";
+    buildTraceDiagram(strDoc_id,traces5);
+
+}
+
+function populateDocumentList() {
+    // var hSessionID = $("#hSessionID").val();
+    // strContractorId = '0';
+    // $.ajax({
+    //     type: "GET",
+    //     url: getUrlBase() + "/api/documents",
+    //     contentType: "text/plain",
+    //     // dataType: "json",
+    //
+    //     beforeSend: function () {
+    //         // SetBusy();
+    //     },
+    //
+    //     success: function (data) {
+    //         // SetNotBusy();
+    //         var jsonObj = data;
+    //         myViewModel.dbAdminContractors(jsonObj);
+    //        if (jsonObj.length == 0) {
+    //
+    //         }
+    //     },
+    //     error: function (err) {
+    //         // SetNotBusy();
+    //         alert("1aError : " + err.status + "   " + err.statusText);
+    //     }
+    // });
+
+
+     var myViewModel;
+    $(document).ready(function(){
+        var dbAdminContractors = [];
+        myViewModel = {
+            dbAdminContractors: ko.observableArray(dbAdminContractors),
+            sendMe: sendMe,
+            selectedChoice: ko.observable(),
+            onChange: function () {
+                //alert("test");
+            }
+        }
+        ko.applyBindings(myViewModel);
+
+
+    q = DATA1['links']
+    var i;
+    list_outer1 = [];
+    for (i = 0; i < q.length; i++) {
+      t = q[i];
+
+        LinkModule = t['LinkModule'];
+        Source  = t['Source'];
+        Target = t['Target'];
+        u = t[key].id
+
+        link_module = getLastString(LinkModule);
+        source = getLastString(Source);
+        target = getLastString(Target);
+
+        var dict_inner = {};
+        dict_inner['doc_id'] = i;
+        dict_inner['doc_name'] = target;
+
+        list_outer1.push(dict_inner);
+
+        // dict_outer.push(dict_inner);
+    }
+
+    var traces5 = list_outer1;
+    console.log(traces5);
+    var jsonObj = traces5;
+    myViewModel.dbAdminContractors(jsonObj);
+    jQuery("#ddlAdminContractors").on('click', AdminSiteClicked);
+    });
+
+}
+
+</script>
+<body onload="buildIt()">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<!--?        <span class="icon-bar"></span>-->
+<!--?        <span class="icon-bar"></span>-->
+<!--?        <span class="icon-bar"></span>-->
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home">Home</a></li>
+        <li><a href="main">Main</a></li>
+        <li><a href="trace">Trace</a></li>
+        <li><a href="document">Document</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+         <strong><u>Documents</u></strong>
+<!--?        <button type="button" class="btn" onclick="open_new_doc_dialog()">+</button>-->
+        <br>
+        <select class="" id="ddlAdminContractors" style="height:300px; width: 100% !important; min-width: 100px;
+                max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
+                name="D7" multiple>
+        </select>
+<!--?      <p><a href="#">Link</a></p>-->
+<!--?      <p><a href="#">Link</a></p>-->
+<!--?      <p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Trace1 diagram</h1>
+
+        <script>
+            myList =''
+            function changeDimensions() {
+                document.getElementById("rect1").setAttribute("width", "100");
+            }
+        </script>
+
+        <p id="demo"></p>
+        <div style="width:30%">
+
+                                var traces = [ <br>
+                                ['','doc1','doc7'],<br>
+                                ['','doc2','doc11'],<br>
+                                ['','doc3','doc11'],<br>
+                                ['','doc4','doc11'],<br>
+                                ['','doc5','doc11'],<br>
+                                ['','doc6','doc7'],<br>
+                                ['','doc11','doc7'],<br>
+                                ['','doc7','doc8'],<br>
+                                ['','doc7','doc9'],<br>
+                                ['','doc7','doc10'],<br>
+                                ['','doc7','doc12a'],<br>
+                                ['','doc3','doc6'],<br>
+                                ['','doc9','doc14'],<br>
+                                ['','doc7','doc12b'],<br>
+                                ['','doc1a','doc1'],<br>
+                                ['','doc1b','doc1a'],<br>
+                                ['','docA','doc1a'],<br>
+                                ['','docB','doc1b']<br>
+                                ];<br>
+                                <br>
+
+        </div>
+
+        <svg id="secondsvg" height="400" width="1400" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- <line x1= "10" y1= "10"
+                  x2="490" y2="490,"
+                  style="stroke:rgb(255,90,50); stroke-width:5" -->
+            />
+        </svg>
+
+        <div id="info" height="400" width="1400">
+            info...
+            <br>
+        </div>
+
+        <svg id="cont" height="10" width="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- <line x1= "10" y1= "10"
+                  x2="490" y2="490,"
+                  style="stroke:rgb(255,90,50); stroke-width:5" -->
+            />
+        </svg>
+
+         <svg id="mysvg" width="700" height="100" style="background-color: lightgrey">
+        <!-- <rect id="rect1" x="10" y="10" width="50" height="80"
+              style="stroke:#000000; fill:none;"/> -->
+              <g id="myg" class="links"></g>
+              <!-- <line x1= "10" y1= "10"
+              x2="490" y2="490"
+              style="stroke:rgb(255,90,50); stroke-width:5" -->
+        />
+         </svg>
+
+        <hr>
+    </div>
+    <div class="col-sm-2 sidenav">
+<!--?      <div class="well">-->
+<!--?        <p>ADS</p>-->
+<!--?      </div>-->
+<!--?      <div class="well">-->
+<!--?        <p>ADS</p>-->
+<!--?      </div>-->
+</div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+
+    <script type="text/javascript" src="/static/scripts/trace.js"></script>
+    <script type="text/javascript" src="/static/raw_trace/data.txt"></script>
+    <script type="text/javascript" src="/static/raw_trace/data1.txt"></script>
+<script>
+
+    function getLastString(aStr) {
+        n = "";
+        var res = aStr.split("/");
+        if (res.length) {
+             if (res[res.length - 1]) {
+                n = res[res.length - 1];
+            }
+        }
+
+        console.log(n);
+
+        return n;
+    }
+
+    var list_outer = [];
+
+
+    q = DATA1['links']
+    var i;
+    for (i = 0; i < q.length; i++) {
+      t = q[i];
+         for (var key in t) {
+            if (t.hasOwnProperty(key)) {
+              //alert(t[key].id);
+              //alert(t[key].msg);
+            }
+        }
+
+        LinkModule = t['LinkModule'];
+        Source  = t['Source'];
+        Target = t['Target'];
+        u = t[key].id
+
+        link_module = getLastString(LinkModule);
+        source = getLastString(Source);
+        target = getLastString(Target);
+
+        var list_inner = [];
+        list_inner.push(link_module);
+        list_inner.push(target);
+        list_inner.push(source);
+
+        list_outer.push(list_inner);
+    }
+
+    var traces5 = list_outer;
+    console.log(traces5);
+    // build TRACE
+    strDoc_id = "48CFR970.5204-2";
+    buildTraceDiagram(strDoc_id,traces5);
+
+</script>
+
+</html>

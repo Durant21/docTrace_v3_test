@@ -1,0 +1,28 @@
+var DATA = {
+    "links": [{
+            "LinkModule": "/P/_L/P",
+            "Source": "T155",
+            "Target": "tester"
+        },
+        {
+            "LinkModule": "P",
+            "Source": "R002",
+            "Target": "48CFR970.5204-2"
+        },
+        {
+            "LinkModule": "/P/_L/S-Rc",
+            "Source": "R021",
+            "Target": "T027"
+        },
+        {   "LinkModule": "/P/_L/S-Rq",
+            "Source": "R008",
+            "Target": "ProcessExplorer"
+        },
+        {
+            "LinkModule": "/P/_L/P",
+            "Source": "48CFR970.5204-2",
+            "Target": "doc8"
+        }
+
+    ]
+}

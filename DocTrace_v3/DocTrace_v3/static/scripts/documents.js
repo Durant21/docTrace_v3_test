@@ -4,6 +4,8 @@ function getUrlBase() {
 function sendMe() {
 
 }
+
+
 var myViewModel;
 $(document).ready(function(){
     var dbAdminContractors = [];

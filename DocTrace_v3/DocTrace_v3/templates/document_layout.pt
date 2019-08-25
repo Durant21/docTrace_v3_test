@@ -1,14 +1,4 @@
 <!--?<!DOCTYPE html metal:define-macro="layout">-->
-<!--?<html lang="{{request.locale_name}}">-->
-<!--?  <head>-->
-
-
-<!--?  </head>-->
-
-<!--?  <body>body </body>-->
-<!--?</html>-->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +17,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<!--?libraries for bootstrap text areas -->
+<!--?   libraries for bootstrap text areas -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -252,7 +242,7 @@
 
     <div id="traceDiv" style="background-color: lavender; width: 80%; height: 30%">
 <!--?trace div-->
-         <svg id="secondsvg" height="200" width="1000" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <svg id="secondsvg" height="200" width="900" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
@@ -306,12 +296,12 @@
 </div>
 
 <input type="hidden" id="txt_doc_id" name="txt_doc_id" value="none">
-<footer class="container-fluid text-center">
-    <div id="statusDiv" style="background-color: lightblue">
-             <label id="lblStatus">status...</label>
-    </div>
-  <p>Footer Text</p>
-</footer>
+<!--?<footer class="container-fluid text-center">-->
+<!--?    <div id="statusDiv" style="background-color: lightblue">-->
+<!--?             <label id="lblStatus">status...</label>-->
+<!--?    </div>-->
+<!--?  <p>Footer Text</p>-->
+<!--?</footer>-->
 
 </body>
 

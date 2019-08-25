@@ -322,7 +322,7 @@ function buildTraceDiagram(centerText,traces) {
           tmpPt[1] = y;
           circle.setAttributeNS(null, 'cx', x);
           circle.setAttributeNS(null, 'cy', y);
-          circle.setAttributeNS(null, 'r', 2);
+          circle.setAttributeNS(null, 'r', 1);
           circle.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
           container.appendChild(circle);
 
@@ -354,7 +354,7 @@ function buildTraceDiagram(centerText,traces) {
 
           circle3.setAttributeNS(null, 'cx', x);
           circle3.setAttributeNS(null, 'cy', y);
-          circle3.setAttributeNS(null, 'r', 2);
+          circle3.setAttributeNS(null, 'r', 1);
           circle3.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
           container.appendChild(circle3);
 
@@ -381,7 +381,7 @@ function buildTraceDiagram(centerText,traces) {
 
           circle3.setAttributeNS(null, 'cx', x);
           circle3.setAttributeNS(null, 'cy', y);
-          circle3.setAttributeNS(null, 'r', 2);
+          circle3.setAttributeNS(null, 'r', 1);
           circle3.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
           container.appendChild(circle3);
 
@@ -569,10 +569,12 @@ function buildTraceDiagram(centerText,traces) {
         if (x === undefined) {
         h = 'v';
         }
+
+        // small circles
         circle.setAttributeNS(null, 'cx', x);
         circle.setAttributeNS(null, 'cy', y);
-        circle.setAttributeNS(null, 'r', 20);
-        circle.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
+        circle.setAttributeNS(null, 'r', 5);
+        circle.setAttributeNS(null, 'style', 'fill: blue; stroke: blue; stroke-width: 1px;' );
         container.appendChild(circle);
 
 
@@ -585,7 +587,7 @@ function buildTraceDiagram(centerText,traces) {
         text1.setAttributeNS(null,'x',x - n);
         text1.setAttributeNS(null,'y',y + 20);
         text1.setAttributeNS(null,'font-size','20px');
-        text1.setAttributeNS(null,'fill','white');
+        text1.setAttributeNS(null,'fill','black');
         var textNode = document.createTextNode(valP);
         text1.appendChild(textNode);
         document.getElementById("myg").appendChild(text1);
@@ -599,16 +601,16 @@ function buildTraceDiagram(centerText,traces) {
 
     circleCenter.setAttributeNS(null, 'cx', pCenterX);
     circleCenter.setAttributeNS(null, 'cy', pCenterY);
-    circleCenter.setAttributeNS(null, 'r', 20);
-    circleCenter.setAttributeNS(null, 'style', 'fill: none; stroke: red; stroke-width: 1px;' );
+    circleCenter.setAttributeNS(null, 'r', 10);
+    circleCenter.setAttributeNS(null, 'style', 'fill: blue; stroke: blue; stroke-width: 1px;' );
     container.appendChild(circleCenter);
 
-
+// 8/7/19
     var text1 = document.createElementNS(svgns, 'text');
-    text1.setAttributeNS(null,'x',pCenterX);
-    text1.setAttributeNS(null,'y',pCenterY);
+    text1.setAttributeNS(null,'x',pCenterX - 40);
+    text1.setAttributeNS(null,'y',pCenterY + 40);
     text1.setAttributeNS(null,'font-size','26px');
-    text1.setAttributeNS(null,'fill','black');
+    text1.setAttributeNS(null,'fill','blue');
     var textNode = document.createTextNode(centerText);
     text1.appendChild(textNode);
     document.getElementById("myg").appendChild(text1);

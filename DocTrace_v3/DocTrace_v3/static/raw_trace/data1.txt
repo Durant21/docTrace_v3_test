@@ -1,0 +1,28 @@
+var DATA1 = {
+    "links": [{
+            "LinkModule": "/P/_L/P",
+            "Source": "T155",
+            "Target": "tester"
+        },
+        {
+            "LinkModule": "/P/_L/P",
+            "Source": "/P/R-C/FR/R002",
+            "Target": "/P/R-C/_Level_0and1_Ref/48CFR970.5204-2"
+        },
+        {
+            "LinkModule": "/P/_L/S-Rc",
+            "Source": "/P/R-C/FR/R021",
+            "Target": "/P/R/T/T027"
+        },
+        {   "LinkModule": "/P/_L/S-Rq",
+            "Source": "/P/R-C/FR/R008",
+            "Target": "/P/R-C/ProcessExplorer/ProcessExplorer"
+        },
+        {
+            "LinkModule": "/P/_L/P",
+            "Source": "/P/R-C/FR/48CFR970.5204-2",
+            "Target": "/P/R-C/_Level_0and1_Ref/doc8"
+        }
+
+    ]
+}
