@@ -4,6 +4,8 @@ from DocTrace_v3.DAL.Doc_Parent import DAL_Doc_Parent
 from DocTrace_v3.DAL.sql_Doc_Parent import Sql_Doc_Parent
 
 class BLL_Doc_Parent:
+    # global final_lst
+    # final_lst = []
 
     # @classmethod
     # def get_sections(cls):
@@ -32,10 +34,53 @@ class BLL_Doc_Parent:
             aDict["relationship"] = d["relationship"]
             aDict["doc_name"] = d["doc_name"]
             aDict["parent_doc_name"] = d["parent_doc_name"]
+            aDict["doc_id"] = d["doc_id"]
 
             aList.append(aDict)
 
-        return aList
+        final_lst = []
+        doc_list = []
+        doc_list.append(doc_id)
+        final_lst1 = BLL_Doc_Parent.find_parent(doc_list,docs,final_lst)
+        final_lst2 = BLL_Doc_Parent.find_child(doc_list,docs,final_lst)
+        return final_lst1
+
+    @classmethod
+    def find_parent(self, doc_list,docs_all,final_lst2):
+
+        tmp_lst = []
+
+        for d in doc_list:
+            for u in docs_all:
+                if u['doc_id'] == d:
+                    # if u['parent_doc_id'] is not '0':
+                    tmp_lst.append(u['parent_id'])
+
+                    final_lst2.append(u)
+
+        if len(tmp_lst) > 0:
+            self.find_parent(tmp_lst,docs_all,final_lst2)
+        # else:
+
+        return final_lst2
+
+    @classmethod
+    def find_child(self, doc_list, docs_all,final_lst):
+        tmp_lst = []
+
+        for d in doc_list:
+            for u in docs_all:
+                if u['parent_id'] == d:
+                    # if u['parent_doc_id'] is not '0':
+                    tmp_lst.append(u['doc_id'])
+
+                    final_lst.append(u)
+
+        if len(tmp_lst) > 0:
+            self.find_child(tmp_lst,docs_all,final_lst)
+        # else:
+
+        return final_lst
 
     @classmethod
     def create_doc_parent(cls, j_body):

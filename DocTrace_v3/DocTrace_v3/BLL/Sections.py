@@ -8,7 +8,7 @@ class BLL_Sections:
     @classmethod
     def get_sections(cls):
 
-        my_sections = DAL_Sections.all_sections(limit=25)
+        my_sections = DAL_Sections.all_sections()
 
         return my_sections
 

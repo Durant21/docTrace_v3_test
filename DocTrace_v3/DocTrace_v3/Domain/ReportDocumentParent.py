@@ -2,7 +2,7 @@ class Report_Doc_Parent:
     def __init__(self):
         self.doc_id = ''
         self.doc_name = ''
-        self.parent_doc_id = ''
+        self.parent_id = ''
         self.parent_doc_name = ''
         self.relationship = ''
 
@@ -13,7 +13,7 @@ class Report_Doc_Parent:
         self.doc_id = id
 
     def add_parent_id(self,id):
-        self.parent_doc_id = id
+        self.parent_id = id
 
     def add_parent_doc_name(self,txt):
         self.parent_doc_name = txt
@@ -27,6 +27,6 @@ class Report_Doc_Parent:
             'relationship': self.relationship,
             'doc_name': self.doc_name,
             'parent_doc_name': self.parent_doc_name,
-            'parent_doc_id': self.parent_doc_id,
+            'parent_id': self.parent_id,
             'doc_id': self.doc_id,
         }

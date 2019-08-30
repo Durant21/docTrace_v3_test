@@ -82,7 +82,7 @@ class DAL_Doc_Parent:
             session = DbSessionFactory.create_session()
 
             db_doc_parent = DocumentParent()
-            # db_section.sec_id = section.sec_id
+            # db_doc_parent.doc_parent_id = doc_parent['doc_parent_id']
             db_doc_parent.doc_id = doc_parent['doc_id']
             db_doc_parent.parent_id = doc_parent['parent_id']
             db_doc_parent.relationship = doc_parent['relationship']

@@ -9,7 +9,7 @@ class BLL_Documents:
     @classmethod
     def get_documents(cls):
 
-        my_documents = DAL_Documents.all_documents(limit=100)
+        my_documents = DAL_Documents.all_documents()
 
         return my_documents
 
