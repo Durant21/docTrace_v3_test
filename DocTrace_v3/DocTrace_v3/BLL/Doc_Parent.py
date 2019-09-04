@@ -28,21 +28,24 @@ class BLL_Doc_Parent:
         docs = Sql_Doc_Parent.doc_parent_by_doc_id(doc_id=doc_id)
 
         aList = [];
-
-        for d in docs:
-            aDict = {}
-            aDict["relationship"] = d["relationship"]
-            aDict["doc_name"] = d["doc_name"]
-            aDict["parent_doc_name"] = d["parent_doc_name"]
-            aDict["doc_id"] = d["doc_id"]
-
-            aList.append(aDict)
+        #
+        # for d in docs:
+        #     aDict = {}
+        #     aDict["relationship"] = d["relationship"]
+        #     aDict["doc_name"] = d["doc_name"]
+        #     aDict["parent_doc_name"] = d["parent_doc_name"]
+        #     aDict["doc_id"] = d["doc_id"]
+        #
+        #     aList.append(aDict)
 
         final_lst = []
         doc_list = []
         doc_list.append(doc_id)
         final_lst1 = BLL_Doc_Parent.find_parent(doc_list,docs,final_lst)
         final_lst2 = BLL_Doc_Parent.find_child(doc_list,docs,final_lst)
+
+        docs.clear()
+
         return final_lst1
 
     @classmethod

@@ -8,6 +8,7 @@ from DocTrace_v3.data.db_factory import DbSessionFactory
 from DocTrace_v3.BLL.Sections import BLL_Sections
 from DocTrace_v3.BLL.Groups import BLL_Groups
 from DocTrace_v3.BLL.Doc_Parent import BLL_Doc_Parent
+from DocTrace_v3.BLL.DocGroupSections import BLL_DocGroupSections
 
 # def test_call_groups():
 #    r = BLL_Groups.get_groups()
@@ -92,6 +93,12 @@ def test_create_doc_group_relationships():
     aDoc_dict = aDoc.to_dict()
     doc_id = aDoc_dict['doc_id']
 
+    y = random.randint(1,len(docs))
+    aDoc = docs[y]
+    aDoc_dict = aDoc.to_dict()
+    append_doc_id = aDoc_dict['doc_id']
+
+
     # create a section
     # get random existing section
     sections = BLL_Sections.get_sections()
@@ -100,13 +107,16 @@ def test_create_doc_group_relationships():
     aSection_dict = aSection.to_dict()
     sec_id = aSection_dict['sec_id']
 
-    # create a group
-    group_data = {"doc_id": doc_id,
-                  "sec_id": sec_id}
-    r = BLL_Groups.create_group(group_data)
-    group_id = r["msg"]
-    print("created group" + group_id)
+    # # create a group
+    # group_data = {"doc_id": doc_id,
+    #               "sec_id": sec_id}
+    # r = BLL_Groups.create_group(group_data)
+    # group_id = r["msg"]
+    # print("created group" + group_id)
 
+    j_body = {"doc_id": doc_id,
+                  "append_doc_id": append_doc_id}
+    r = BLL_DocGroupSections.attach_sections(j_body)
 
 def test_create_doc_parent():
     doc_data = {"doc_id": "1001",
@@ -214,7 +224,7 @@ def main():
     DbSessionFactory.global_init('myDocuments.sqlite')
     # (test_call_groups())
     # test_call_documents()
-    # test_get_all_documents()
+    test_get_all_documents()
     # (test_doc())
     # test_create_doc('abc')
     # test_update_doc('abc')
@@ -236,18 +246,19 @@ def main():
     # test_create_doc_parent()
     # test_get_doc_parent_report()
     # test_find_parent_child()
-
-    # for _ in range(1,5):
+    #
+    # for _ in range(1,20):
     #     test_create_doc_group_relationships()
+    #
     # for _ in range(1,6):
     #     test_create_multiple_doc_parents()
 
-
-    for _ in range (1,50000):
-        r  = 5
-        t = 4
-        u = r/t
-        print(u)
+    #
+    # for _ in range (1,50000):
+    #     r  = 5
+    #     t = 4
+    #     u = r/t
+    #     print(u)
 
     print('done')
 

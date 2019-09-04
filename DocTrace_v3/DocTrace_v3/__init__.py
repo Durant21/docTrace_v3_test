@@ -25,6 +25,7 @@ def main(global_config, **settings):
         config.add_route('document','/document')
         config.add_route('documents_api','/api/documents')
         config.add_route('document_api','/api/document/{doc_id}')
+        config.add_route('document2_api','/api/document_by_name/{doc_name}')
         config.add_route('documents1_api','/api/create_document')
 
         config.add_route('sections_api','/api/sections')

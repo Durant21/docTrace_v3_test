@@ -19,6 +19,13 @@ class BLL_Documents:
 
         return doc
 
+
+    @classmethod
+    def single_document_by_name(cls,doc_name):
+        doc = DAL_Documents.doc_by_name(doc_name=doc_name)
+
+        return doc
+
     @classmethod
     def create_document(cls,doc_data):
 

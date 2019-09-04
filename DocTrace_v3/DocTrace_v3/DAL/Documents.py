@@ -34,6 +34,15 @@ class DAL_Documents:
 
         return document
 
+
+    @classmethod
+    def doc_by_name(cls, doc_name):
+        session = DbSessionFactory.create_session()
+        document = session.query(Document).filter(Document.doc_name == doc_name).first()
+        session.close()
+
+        return document
+
     @classmethod
     def add_document(cls, doc):
         try:

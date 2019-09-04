@@ -20,11 +20,22 @@ def all_documents(_):
 @view_config(route_name='document_api',
              request_method='GET',
              renderer='json')
-def single_document(request: Request):
+def single_document_by_id(request: Request):
     doc_id = request.matchdict.get('doc_id')
     doc = BLL_Documents.single_document(doc_id)
 
     return doc
+
+
+@view_config(route_name='document2_api',
+             request_method='GET',
+             renderer='json')
+def single_document_by_name(request: Request):
+    doc_name = request.matchdict.get('doc_name')
+    doc = BLL_Documents.single_document_by_name(doc_name)
+
+    return doc
+
 
 @view_config(route_name='documents_api',
              request_method='POST')
