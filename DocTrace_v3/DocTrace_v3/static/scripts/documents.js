@@ -206,6 +206,16 @@ function get_document_name(str_doc_id) {
 
 }
 
+function getDivContents() {
+  // var x = document.getElementById("outerDiv").innerHTML;
+  // document.getElementById("demo").innerHTML = x;
+
+  var everyChild = document.querySelectorAll("#outerDiv div");
+    for (var i = 0; i<everyChild.length; i++) {
+        everyChild[i].classList.add("anything");
+    }
+}
+
 function create_content() {
 
     var element1 = document.getElementById("txt_doc_id");
@@ -219,12 +229,17 @@ function create_content() {
     {
         str_new_content = elementNewContent.value;
     }
+
+    var uu = getDivContents();
+
     var d = new Date();
     var n = d.toLocaleDateString();
+    var str_order = '3';
     var new_content = '{' +
         '"doc_id": "' + str_doc_id + '",' +
         '"sec_date_in": "' + n + '",' +
-        '"sec_text": "' + str_new_content + '"' +
+        '"sec_text": "' + str_new_content + '",' +
+        '"order": "' + str_order + '"' +
         '}';
 
     $.ajax({
