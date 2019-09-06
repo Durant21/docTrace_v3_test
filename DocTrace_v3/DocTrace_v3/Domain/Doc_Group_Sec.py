@@ -6,6 +6,9 @@ class Doc_Group_Sec:
         self.sec_text = ''
         self.sec_id = ''
 
+    def add_doc_id(self, id):
+        self.doc_id = id
+
     def add_doc_name(self, name):
         self.doc_name = name
 

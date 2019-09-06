@@ -209,11 +209,16 @@ function get_document_name(str_doc_id) {
 function getDivContents() {
   // var x = document.getElementById("outerDiv").innerHTML;
   // document.getElementById("demo").innerHTML = x;
-
+  var doc_list = [];
   var everyChild = document.querySelectorAll("#outerDiv div");
     for (var i = 0; i<everyChild.length; i++) {
         everyChild[i].classList.add("anything");
+        if (everyChild[i].id) {
+             doc_list.push(everyChild[i].id);
+        }
     }
+
+    return doc_list;
 }
 
 function create_content() {
@@ -230,11 +235,9 @@ function create_content() {
         str_new_content = elementNewContent.value;
     }
 
-    var uu = getDivContents();
-
     var d = new Date();
     var n = d.toLocaleDateString();
-    var str_order = '3';
+    var str_order = getDivContents();
     var new_content = '{' +
         '"doc_id": "' + str_doc_id + '",' +
         '"sec_date_in": "' + n + '",' +
@@ -335,7 +338,7 @@ function getSectionsByDoc(str_doc_id) {
 
 }
 
-function generateSectionsDiv(sec_text) {
+function generateSectionsDiv(sec_text,sec_id) {
 
             // grab the main container
             var outerDiv = document.getElementById("outerDiv");
@@ -352,6 +355,7 @@ function generateSectionsDiv(sec_text) {
             var innerDiv2 = document.createElement("div")
             innerDiv2.className="panel-footer panelColor uuu"
             //innerDiv1b.className="row1a text-center";//"row1a"
+            innerDiv2.id = sec_id;
             var text1 = document.createElement("text")
             text1.innerHTML=sec_text;//headline;
             innerDiv2.appendChild(text1);
@@ -432,7 +436,8 @@ function open_doc_sections(strDoc_id) {
                 console.log(response[i].doc_name);
                 //Do something
                 sec_text = response[i].sec_text;
-                generateSectionsDiv(sec_text)
+                sec_id = response[i].sec_id;
+                generateSectionsDiv(sec_text,sec_id);
             }
             recs = 0;
             // if no records returned, indicate "No values"
