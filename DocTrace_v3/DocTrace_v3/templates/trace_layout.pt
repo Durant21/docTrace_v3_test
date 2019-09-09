@@ -127,7 +127,7 @@
 
         </div>
 
-        <svg id="secondsvg" height="400" width="1400" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg id="secondsvg" height="400" width="1800" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
@@ -146,7 +146,7 @@
             />
         </svg>
 
-         <svg id="mysvg" width="700" height="100" style="background-color: lightgrey">
+<!--?         <svg id="mysvg" width="700" height="100" style="background-color: lightgrey">-->
         <!-- <rect id="rect1" x="10" y="10" width="50" height="80"
               style="stroke:#000000; fill:none;"/> -->
               <g id="myg" class="links"></g>
