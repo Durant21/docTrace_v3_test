@@ -242,7 +242,7 @@
 
     <div id="traceDiv" style="background-color: lavender; width: 80%; height: 30%">
 <!--?trace div-->
-         <svg id="secondsvg" height="500" width="1200" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <svg id="secondsvg" height="500" width="300" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
