@@ -220,11 +220,52 @@ def test_find_parent_child():
     t = BLL_Doc_Parent.find_child(doc_list,docs_all,final_lst3)
     print(t)
 
+
+def test_create_multiple_docs():
+    range_start = 1
+    range_stop = 15
+
+    for i in range(range_start,range_stop):
+        doc_data = {"doc_name": "doc" +str(i)}
+        r1 = BLL_Documents.create_document(doc_data=doc_data)
+        for t in range(range_start,range_stop):
+            doc_data = {"doc_name": "doc" + str((i * 10) + t)}
+            r2 = BLL_Documents.create_document(doc_data=doc_data)
+            #
+            # doc_rel_data1 = {"doc_id": r2['msg'],
+            #             "parent_id": r1['msg'],
+            #             "relationship": "copy"}
+            #
+            # s = BLL_Doc_Parent.create_doc_parent(doc_rel_data1)
+
+            j_body = {"doc_id": r2['msg'],
+                      "append_doc_id": r1['msg']}
+            r = BLL_DocGroupSections.attach_sections(j_body)
+
+            for g in range(range_start,range_stop):
+                doc_data = {"doc_name": "doc" + str((i * 100) + g)}
+                r3 = BLL_Documents.create_document(doc_data=doc_data)
+
+                j_body = {"doc_id": r3['msg'],
+                          "append_doc_id": r2['msg']}
+                r = BLL_DocGroupSections.attach_sections(j_body)
+
+                for h in range(range_start, range_stop):
+                    doc_data = {"doc_name": "doc" + str((i * 1000) + h)}
+                    r4 = BLL_Documents.create_document(doc_data=doc_data)
+
+                    j_body = {"doc_id": r4['msg'],
+                              "append_doc_id": r3['msg']}
+                    r = BLL_DocGroupSections.attach_sections(j_body)
+
+
+
+
 def main():
     DbSessionFactory.global_init('myDocuments.sqlite')
     # (test_call_groups())
     # test_call_documents()
-    test_get_all_documents()
+    # test_get_all_documents()
     # (test_doc())
     # test_create_doc('abc')
     # test_update_doc('abc')
@@ -259,7 +300,7 @@ def main():
     #     t = 4
     #     u = r/t
     #     print(u)
-
+    test_create_multiple_docs()
     print('done')
 
 if __name__ == "__main__":
