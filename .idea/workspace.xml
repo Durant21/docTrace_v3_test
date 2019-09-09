@@ -15,7 +15,12 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/DocTrace_v3" />
+>>>>>>> a612112cd934ebba6949e1cdeb84aa5569c833d7
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,7 +47,11 @@
       <workItem from="1564010474957" duration="4000" />
       <workItem from="1564010511863" duration="4000" />
       <workItem from="1564522451171" duration="8000" />
+<<<<<<< HEAD
+      <workItem from="1567626227150" duration="93000" />
+=======
       <workItem from="1567632992128" duration="31000" />
+>>>>>>> a612112cd934ebba6949e1cdeb84aa5569c833d7
     </task>
     <servers />
   </component>

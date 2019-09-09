@@ -42,30 +42,30 @@ traces2 = [
   {
     var tempArray = new Array ();
     if (locPanelNumber == 1) {
-    // set variables for x,y
-    var x = svgWidth * .35;
-    var y = 0;
+        // set variables for x,y
+        var x = svgWidth * .45;
+        var y = 0;
     } else if (locPanelNumber == 2) {
-    x = svgWidth * .20;
-    y = 0;
-    } else if (locPanelNumber == 3) {
-    x = svgWidth * .05;
-    y = 0;
+        x = svgWidth * .30;
+        y = 0;
+        } else if (locPanelNumber == 3) {
+        x = svgWidth * .25;
+        y = 0;
     } else {
-    x = 1;
-    y = 0;
+        x = 1;
+        y = 0;
     }
 
 
     var u = 0;
     for(var i = 0 ; i < theArray.length; i ++)
     {
-    if (theArray[i]) {
-    t =  theArray[i];
-    if (locPanelSide == "L") {
-    r = t[3];
-    } else {
-    r = t[4];
+        if (theArray[i]) {
+            t =  theArray[i];
+        if (locPanelSide == "L") {
+            r = t[3];
+        } else {
+            r = t[4];
     }
 
     // alert(r);
@@ -98,53 +98,53 @@ traces2 = [
 
    function buildRightPanels(theArray,centerDoc,locPanelNumber, locPanelSide,traces)
   {
-    var tempArray1 = new Array ();
-    if (locPanelNumber == 1) {
-    // set variables for x,y
-    var x = svgWidth * .60;
-    var y = 0;
-    } else if (locPanelNumber == 2) {
-    x = svgWidth * .75;
-    y = 0;
-    } else if (locPanelNumber == 3) {
-    x = svgWidth * .85;
-    y = 0;
-    } else {
-    x = 0;
-    y = 1;
-    }
+        var tempArray1 = new Array ();
+        if (locPanelNumber == 1) {
+            // set variables for x,y
+            var x = svgWidth * .60;
+            var y = 0;
+        } else if (locPanelNumber == 2) {
+            x = svgWidth * .75;
+            y = 0;
+        } else if (locPanelNumber == 3) {
+            x = svgWidth * .85;
+            y = 0;
+        } else {
+            x =  svgWidth * .96;
+            y = 1;
+        }
 
-    var u = 0;
-    for(var i = 0 ; i < theArray.length; i ++)
-    {
-    if (theArray[i]) {
-    t =  theArray[i];
+        var u = 0;
+        for(var i = 0 ; i < theArray.length; i ++)
+        {
+            if (theArray[i]) {
+                t =  theArray[i];
 
-    if (locPanelSide == "L") {
-    r = t[3];
-    } else {
-    r = t[4];
-    }
+            if (locPanelSide == "L") {
+                r = t[3];
+            } else {
+                r = t[4];
+            }
 
-    for(var n = 0 ; n < traces.length; n ++)
-    {
-    if (traces[n])
-    {
-    if (traces[n][1] == r) {
-    // alert(traces[n][0]);
-    var nArray = new Array ();
-    y = y + 50;
-    // nArray[0] = [x,y,traces[n][0],traces[n][1]];
-    nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
-    // paL2[n] = nArray;
-    superArray[superArray.length + 1] = nArray;
-    tempArray1[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
-    u = u + 1;
-    a = 0;
-    }
-    }
-    }
-    }
+            for(var n = 0 ; n < traces.length; n ++)
+            {
+                if (traces[n])
+                {
+                    if (traces[n][1] == r) {
+                        // alert(traces[n][0]);
+                        var nArray = new Array ();
+                        y = y + 50;
+                        // nArray[0] = [x,y,traces[n][0],traces[n][1]];
+                        nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
+                        // paL2[n] = nArray;
+                        superArray[superArray.length + 1] = nArray;
+                        tempArray1[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
+                        u = u + 1;
+                        a = 0;
+                    }
+                }
+            }
+        }
     }
     if ((tempArray1) && (tempArray1.length > 0))
     {
@@ -354,7 +354,7 @@ function buildTraceDiagram(centerText,traces) {
 
           circle3.setAttributeNS(null, 'cx', x);
           circle3.setAttributeNS(null, 'cy', y);
-          circle3.setAttributeNS(null, 'r', 1);
+          circle3.setAttributeNS(null, 'r', 2);
           circle3.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
           container.appendChild(circle3);
 
@@ -569,11 +569,11 @@ function buildTraceDiagram(centerText,traces) {
         if (x === undefined) {
         h = 'v';
         }
-
+        // 9/9
         // small circles
         circle.setAttributeNS(null, 'cx', x);
         circle.setAttributeNS(null, 'cy', y);
-        circle.setAttributeNS(null, 'r', 5);
+        circle.setAttributeNS(null, 'r', 2);  // 5 was original
         circle.setAttributeNS(null, 'style', 'fill: blue; stroke: blue; stroke-width: 1px;' );
         container.appendChild(circle);
 
@@ -586,7 +586,7 @@ function buildTraceDiagram(centerText,traces) {
         }
         text1.setAttributeNS(null,'x',x - n);
         text1.setAttributeNS(null,'y',y + 20);
-        text1.setAttributeNS(null,'font-size','20px');
+        text1.setAttributeNS(null,'font-size','10px');  // 20px was original
         text1.setAttributeNS(null,'fill','black');
         var textNode = document.createTextNode(valP);
         text1.appendChild(textNode);
