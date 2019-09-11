@@ -108,6 +108,31 @@
         t.style.display = "block";
     }
 
+
+    function upsize_trace_diagram() {
+        t = document.getElementById('secondsvg');
+        current_width = t.clientWidth;
+        current_height = t.clientHeight;
+        //alert(current_width + 50);
+        // t.style.width = (current_width + 50).toString() + 'px';
+        // t.style.height = (current_height + 50).toString() + 'px';
+        doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+        gggR = gggR * 1.1;
+        buildTraceArray(doc_id);
+    }
+
+    function downsize_trace_diagram() {
+        t = document.getElementById('secondsvg');
+        current_width = t.clientWidth;
+        current_height = t.clientHeight;
+        //alert(current_width + 50);
+        // t.style.width = (current_width - 50).toString() + 'px';
+        // t.style.height = (current_height - 50).toString() + 'px';
+        doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+        gggL = gggL * .1;
+        buildTraceArray(doc_id);
+    }
+
     function open_new_doc_dialog() {
         set_visible('divCreateDocument');
         set_not_visible("btnAddContent");
@@ -207,6 +232,8 @@
 
    <br>
     <button type="button" id="btnAddContent" class="btn" onclick="open_new_content_dialog('divNewContent')" >Add Content</button>
+    <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
+    <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
     <br>
     <div id="divNewContent" class="form-group">
         <table style="width:550px">
@@ -240,9 +267,9 @@
 
     </div>
 
-    <div id="traceDiv" style="background-color: lavender; width: 80%; height: 30%">
+    <div id="traceDiv" style="background-color: lavender; overflow-y: auto; width: 80%; height: 600px">eeeee
 <!--?trace div-->
-         <svg id="secondsvg" height="500" width="300" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <svg id="secondsvg" height="900" width="1300" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->

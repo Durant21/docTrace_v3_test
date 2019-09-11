@@ -38,18 +38,20 @@ traces2 = [
       var firstArrayL = new Array ();
       var firstArrayR = new Array ();
 
+      var gggL = .45;
+      var gggR = .60;
   function buildLeftPanels(theArray,centerDoc,locPanelNumber, locPanelSide,traces)
   {
     var tempArray = new Array ();
     if (locPanelNumber == 1) {
         // set variables for x,y
-        var x = svgWidth * .45;
+        var x = svgWidth * gggL;  //  .45
         var y = 0;
     } else if (locPanelNumber == 2) {
-        x = svgWidth * .30;
+        x = svgWidth * (gggL - .15);  // .30
         y = 0;
         } else if (locPanelNumber == 3) {
-        x = svgWidth * .25;
+        x = svgWidth * (gggL - .2);  // .25
         y = 0;
     } else {
         x = 1;
@@ -101,13 +103,13 @@ traces2 = [
         var tempArray1 = new Array ();
         if (locPanelNumber == 1) {
             // set variables for x,y
-            var x = svgWidth * .60;
+            var x = svgWidth * gggR;  //  0.60
             var y = 0;
         } else if (locPanelNumber == 2) {
-            x = svgWidth * .75;
+            x = svgWidth * (gggR + .15);  //  0.75
             y = 0;
         } else if (locPanelNumber == 3) {
-            x = svgWidth * .85;
+            x = svgWidth * (gggR + .25);  //  0.85
             y = 0;
         } else {
             x =  svgWidth * .96;
@@ -154,15 +156,6 @@ traces2 = [
 
 
 function buildTraceDiagram(centerText,traces) {
-      //       var paL1 = new Array ();
-      // var paL2 = new Array ();
-      // var paR1 = new Array ();
-      // var paR2 = new Array ();
-     // var myPts = new Array ();
-     // var superArray = new Array ();
-      // var firstArrayL = new Array ();
-      //var firstArrayR = new Array ();
-
 
     // clear the circles left over from previous click by emptying the superArray.
     superArray = [];
@@ -173,18 +166,6 @@ function buildTraceDiagram(centerText,traces) {
     secondsvg = document.getElementById('secondsvg');
     secondsvg.parentNode.replaceChild(secondsvg.cloneNode(false), secondsvg);
     $("#secondsvg").empty();
-
-    // contsvg = document.getElementById('cont');
-    // contsvg.parentNode.replaceChild(contsvg.cloneNode(false), contsvg);
-    // $("#cont").empty();
-    //
-    // $("svg").find("*").not("rect, g").remove();
-    //     mysvg = document.getElementById('mysvg')
-    // if (mysvg) {
-    //     // $("#mysvg").empty();
-    // }
-
-
 
       //alert( svgWidth);
       var pCenterX = svgWidth/2;
@@ -245,14 +226,6 @@ function buildTraceDiagram(centerText,traces) {
             }
           }
         }
-
-        //if (paL1[i][1] == 7) {
-          //alert("P: " + traces[i][0] + "," + traces[i][1]);
-          // var nArray = new Array ();
-          // y = y + 50;
-          // nArray[0] = [x,y];
-          // paL1[i] = nArray;
-        //}
       }
 
       // populate panel R 1  (paR1)
