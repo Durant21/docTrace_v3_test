@@ -114,10 +114,13 @@
         current_width = t.clientWidth;
         current_height = t.clientHeight;
         //alert(current_width + 50);
-        // t.style.width = (current_width + 50).toString() + 'px';
-        // t.style.height = (current_height + 50).toString() + 'px';
+        t.style.width = (current_width + 50).toString() + 'px';
+        t.style.height = (current_height + 50).toString() + 'px';
         doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
         gggR = gggR * 1.1;
+        gggL = gggL * 0.9;
+        yFactor = yFactor * 1.1;
+        dFactor = dFactor + 1;
         buildTraceArray(doc_id);
     }
 
@@ -126,10 +129,13 @@
         current_width = t.clientWidth;
         current_height = t.clientHeight;
         //alert(current_width + 50);
-        // t.style.width = (current_width - 50).toString() + 'px';
-        // t.style.height = (current_height - 50).toString() + 'px';
+        t.style.width = (current_width - 50).toString() + 'px';
+        t.style.height = (current_height - 50).toString() + 'px';
         doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
-        gggL = gggL * .1;
+        gggR = gggR * .9;
+        gggL = gggL * 1.1;
+        yFactor = yFactor * .9;
+        dFactor = dFactor - 1;
         buildTraceArray(doc_id);
     }
 

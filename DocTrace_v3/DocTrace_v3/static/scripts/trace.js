@@ -40,6 +40,8 @@ traces2 = [
 
       var gggL = .45;
       var gggR = .60;
+      var yFactor = 50;
+      var dFactor = 1;
   function buildLeftPanels(theArray,centerDoc,locPanelNumber, locPanelSide,traces)
   {
     var tempArray = new Array ();
@@ -48,10 +50,10 @@ traces2 = [
         var x = svgWidth * gggL;  //  .45
         var y = 0;
     } else if (locPanelNumber == 2) {
-        x = svgWidth * (gggL - .15);  // .30
+        x = svgWidth * (gggL - (.15 * dFactor));  // .30
         y = 0;
         } else if (locPanelNumber == 3) {
-        x = svgWidth * (gggL - .2);  // .25
+        x = svgWidth * (gggL - (.2 * dFactor));  // .25
         y = 0;
     } else {
         x = 1;
@@ -79,7 +81,7 @@ traces2 = [
     if (traces[n][2] == r) {
     // alert(traces[n][0]);
     var nArray = new Array ();
-    y = y + 50;
+    y = y + yFactor;
     // nArray[0] = [x,y,traces[n][0],traces[n][1]];
     nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
     // paL2[n] = nArray;
@@ -106,10 +108,10 @@ traces2 = [
             var x = svgWidth * gggR;  //  0.60
             var y = 0;
         } else if (locPanelNumber == 2) {
-            x = svgWidth * (gggR + .15);  //  0.75
+            x = svgWidth * (gggR + (.15 * dFactor));  //  0.75
             y = 0;
         } else if (locPanelNumber == 3) {
-            x = svgWidth * (gggR + .25);  //  0.85
+            x = svgWidth * (gggR + (.25 * dFactor));  //  0.85
             y = 0;
         } else {
             x =  svgWidth * .96;
@@ -135,7 +137,7 @@ traces2 = [
                     if (traces[n][1] == r) {
                         // alert(traces[n][0]);
                         var nArray = new Array ();
-                        y = y + 50;
+                        y = y + yFactor;  // was 50
                         // nArray[0] = [x,y,traces[n][0],traces[n][1]];
                         nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
                         // paL2[n] = nArray;
