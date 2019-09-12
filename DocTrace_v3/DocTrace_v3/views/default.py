@@ -24,3 +24,8 @@ def trace_view1a(request):
 @view_config(route_name='document', renderer='../templates/document_template.pt')
 def trace_view2(request):
     return {'project': 'DocTrace_v3'}
+
+
+@view_config(route_name='diff', renderer='../templates/diff_template.pt')
+def trace_view2(request):
+    return {'project': 'DocTrace_v3'}

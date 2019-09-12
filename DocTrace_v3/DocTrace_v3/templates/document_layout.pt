@@ -117,10 +117,11 @@
         t.style.width = (current_width + 50).toString() + 'px';
         t.style.height = (current_height + 50).toString() + 'px';
         doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+        doc_id = $("#ddlAdminContractors option:selected").val();
         gggR = gggR * 1.1;
         gggL = gggL * 0.9;
         yFactor = yFactor * 1.1;
-        dFactor = dFactor + 1;
+        dFactor = dFactor + .25;
         buildTraceArray(doc_id);
     }
 
@@ -132,10 +133,11 @@
         t.style.width = (current_width - 50).toString() + 'px';
         t.style.height = (current_height - 50).toString() + 'px';
         doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+        doc_id = $("#ddlAdminContractors option:selected").val();
         gggR = gggR * .9;
         gggL = gggL * 1.1;
         yFactor = yFactor * .9;
-        dFactor = dFactor - 1;
+        dFactor = dFactor - 0.25;
         buildTraceArray(doc_id);
     }
 
@@ -183,7 +185,7 @@
         <strong><u>Documents</u></strong>
         <button type="button" class="btn" onclick="open_new_doc_dialog()">+</button>
         <br>
-        <select class="" id="ddlAdminContractors" style="height:300px; width: 100% !important; min-width: 100px;
+        <select class="" id="ddlAdminContractors" style="height:100%; width: 100% !important; min-width: 100px;
                 max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
                 name="D7" multiple>
         </select>
@@ -238,8 +240,7 @@
 
    <br>
     <button type="button" id="btnAddContent" class="btn" onclick="open_new_content_dialog('divNewContent')" >Add Content</button>
-    <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
-    <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
+
     <br>
     <div id="divNewContent" class="form-group">
         <table style="width:550px">
@@ -272,37 +273,34 @@
     <div id="outerDiv" style="background-color: white; width: 80%">
 
     </div>
+    <div style ="position: relative;  top: 0px" >
+     <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
+     <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
+    </div>
 
-    <div id="traceDiv" style="background-color: lavender; overflow-y: auto; width: 80%; height: 600px">eeeee
-<!--?trace div-->
-         <svg id="secondsvg" height="900" width="1300" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <div id="traceDiv" style="background-color: lavender; overflow-y: auto; width: 80%; height: 600px">
+
+         <svg id="secondsvg" height="600" width="900" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
             />
+
         </svg>
 
         <div id="info" height="400" width="900">
-<!--?            info...-->
             <br>
         </div>
 
         <svg id="cont" height="10" width="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-           rrrr     <!-- <line x1= "10" y1= "10"
+             <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
             />
+
         </svg>
 
-<!--?         <svg id="mysvg" width="700" height="100" style="background-color: lightgrey">-->
-        <!-- <rect id="rect1" x="10" y="10" width="50" height="80"
-              style="stroke:#000000; fill:none;"/> -->
               <g id="myg" class="links"></g>
-              <!-- <line x1= "10" y1= "10"
-              x2="490" y2="490"
-              style="stroke:rgb(255,90,50); stroke-width:5" -->
-<!--?        />-->
-<!--?         </svg>-->
 
 
     </div>
