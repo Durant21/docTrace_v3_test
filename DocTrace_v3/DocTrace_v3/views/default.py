@@ -27,5 +27,5 @@ def trace_view2(request):
 
 
 @view_config(route_name='diff', renderer='../templates/diff_template.pt')
-def trace_view2(request):
+def diff_view(request):
     return {'project': 'DocTrace_v3'}

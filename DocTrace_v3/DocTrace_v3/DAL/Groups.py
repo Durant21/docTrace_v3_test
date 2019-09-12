@@ -46,6 +46,7 @@ class DAL_Groups:
             u.add_doc_id(d.doc_id)
             u.add_sec_text(s.sec_text)
             u.add_sec_id(s.sec_id)
+            u.add_order(g.order)
 
             docs.append(u.to_dict())
 
@@ -81,6 +82,7 @@ class DAL_Groups:
             # db_section.sec_id = section.sec_id
             db_group.doc_id = group.doc_id
             db_group.sec_id = group.sec_id
+            db_group.order = 1
 
             session.add(db_group)
             session.commit()

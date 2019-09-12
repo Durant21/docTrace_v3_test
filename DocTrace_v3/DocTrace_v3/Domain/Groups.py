@@ -11,10 +11,11 @@ class Group(SqlAlchemyBase):
                                default=lambda: str(uuid.uuid4()))
     doc_id = sqlalchemy.Column(sqlalchemy.String)
     sec_id = sqlalchemy.Column(sqlalchemy.String)
-
+    order = sqlalchemy.Column(sqlalchemy.String)
     def to_dict(self):
         return {
             'group_id': self.group_id,
             'doc_id': self.doc_id,
             'sec_id': self.sec_id,
+            'order': self.order,
         }
