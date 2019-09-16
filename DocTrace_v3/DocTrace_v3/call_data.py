@@ -54,6 +54,10 @@ def test_get_all_sections():
     print('found {} sections'.format(len(sections)))
     return None
 
+def test_get_sections_by_doc(doc_id):
+    sections = BLL_Sections.get_sections_by_doc(doc_id)
+    print('found {} sections'.format(len(sections)))
+    return None
 
 def test_edit_section():
     section_data = {
@@ -284,6 +288,7 @@ def main():
     # TEST SECTIONS
     # test_create_section()
     # test_get_all_sections()
+    test_get_sections_by_doc('d60a7e19-6c2c-4d90-92c9-cb8fb6c189a0')
     # test_edit_section()
 
     # TEST GROUPS
@@ -308,7 +313,7 @@ def main():
     #     t = 4
     #     u = r/t
     #     print(u)
-    test_create_multiple_docs()
+    # test_create_multiple_docs()
     print('done')
 
 if __name__ == "__main__":
