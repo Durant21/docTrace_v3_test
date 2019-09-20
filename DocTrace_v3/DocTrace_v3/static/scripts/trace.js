@@ -38,7 +38,7 @@ traces2 = [
       var firstArrayL = new Array ();
       var firstArrayR = new Array ();
 
-      var gggL = .45;
+      var gggL = .40;
       var gggR = .60;
       var yFactor = 50;
       var dFactor = 1;
@@ -47,15 +47,37 @@ traces2 = [
     var tempArray = new Array ();
     if (locPanelNumber == 1) {
         // set variables for x,y
-        var x = svgWidth * gggL;  //  .45
+        var x = svgWidth * gggL;// * (gggL - (.5 * dFactor));  // .30
         var y = 0;
     } else if (locPanelNumber == 2) {
-        x = svgWidth * (gggL - (.15 * dFactor));  // .30
+        x = svgWidth * (gggL - (.10 * dFactor));  // .30
         y = 0;
-        } else if (locPanelNumber == 3) {
-        x = svgWidth * (gggL - (.2 * dFactor));  // .25
+    } else if (locPanelNumber == 3) {
+        x = svgWidth * (gggL - (.15 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 4) {
+        x = svgWidth * (gggL - (.20 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 5) {
+        x = svgWidth * (gggL - (.25 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 6) {
+        x = svgWidth * (gggL - (.30 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 7) {
+        x = svgWidth * (gggL - (.35 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 8) {
+        x = svgWidth * (gggL - (.40 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 9) {
+        x = svgWidth * (gggL - (.45 * dFactor));  // .25
+        y = 0;
+    } else if (locPanelNumber == 10) {
+        x = svgWidth * (gggL - (.50 * dFactor));  // .25
         y = 0;
     } else {
+        //alert(locPanelNumber + '  oops...')
         x = 1;
         y = 0;
     }
@@ -66,37 +88,35 @@ traces2 = [
     {
         if (theArray[i]) {
             t =  theArray[i];
-        if (locPanelSide == "L") {
-            r = t[3];
-        } else {
-            r = t[4];
-    }
+            if (locPanelSide == "L") {
+                r = t[3];
+            } else {
+                r = t[4];
+            }
 
-    // alert(r);
-
-    for(var n = 0 ; n < traces.length; n ++)
-    {
-    if (traces[n])
-    {
-    if (traces[n][2] == r) {
-    // alert(traces[n][0]);
-    var nArray = new Array ();
-    y = y + yFactor;
-    // nArray[0] = [x,y,traces[n][0],traces[n][1]];
-    nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
-    // paL2[n] = nArray;
-    superArray[superArray.length + 1] = nArray;
-    tempArray[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
-    u = u + 1;
-    a = 0;
-    }
-    }
-    }
-    }
+            for(var n = 0 ; n < traces.length; n ++)
+            {
+                if (traces[n])
+                {
+                    if (traces[n][2] == r) {
+                        // alert(traces[n][0]);
+                        var nArray = new Array ();
+                        y = y + yFactor;
+                        // nArray[0] = [x,y,traces[n][0],traces[n][1]];
+                        nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
+                        // paL2[n] = nArray;
+                        superArray[superArray.length + 1] = nArray;
+                        tempArray[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
+                        u = u + 1;
+                        a = 0;
+                    }
+                }
+            }
+        }
     }
     if ((tempArray) && (tempArray.length > 0))
     {
-    buildLeftPanels(tempArray,'doc1',locPanelNumber + 1,locPanelSide, traces)
+        buildLeftPanels(tempArray,'doc1',locPanelNumber + 1,locPanelSide, traces)
     }
 }
 
@@ -108,10 +128,34 @@ traces2 = [
             var x = svgWidth * gggR;  //  0.60
             var y = 0;
         } else if (locPanelNumber == 2) {
-            x = svgWidth * (gggR + (.15 * dFactor));  //  0.75
+            x = svgWidth * (gggR + (.10 * dFactor));  //  0.75
             y = 0;
         } else if (locPanelNumber == 3) {
+            x = svgWidth * (gggR + (.15 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 4) {
+            x = svgWidth * (gggR + (.20 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 5) {
             x = svgWidth * (gggR + (.25 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 6) {
+            x = svgWidth * (gggR + (.30 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 7) {
+            x = svgWidth * (gggR + (.35 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 8) {
+            x = svgWidth * (gggR + (.40 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 9) {
+            x = svgWidth * (gggR + (.45 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 9) {
+            x = svgWidth * (gggR + (.45 * dFactor));  //  0.85
+            y = 0;
+        } else if (locPanelNumber == 10) {
+            x = svgWidth * (gggR + (.50 * dFactor));  //  0.85
             y = 0;
         } else {
             x =  svgWidth * .96;
@@ -157,14 +201,16 @@ traces2 = [
 }
 
 
-function buildTraceDiagram(centerText,traces) {
+   function buildTraceDiagram(centerText,traces) {
 
     // clear the circles left over from previous click by emptying the superArray.
     superArray = [];
 
-    svgHeight = document.getElementById('secondsvg').getAttribute("height");
-    svgWidth = document.getElementById('secondsvg').getAttribute("width");
-
+    // svgHeight = document.getElementById('secondsvg').getAttribute("height");
+    // svgWidth = document.getElementById('secondsvg').getAttribute("width");
+t = document.getElementById('secondsvg');
+        svgWidth = t.clientWidth;
+        svgHeight = t.clientHeight;
     secondsvg = document.getElementById('secondsvg');
     secondsvg.parentNode.replaceChild(secondsvg.cloneNode(false), secondsvg);
     $("#secondsvg").empty();
@@ -572,6 +618,7 @@ function buildTraceDiagram(centerText,traces) {
         }
         }
 
+    // Draw Center Circle
     var circleCenter = document.createElementNS(svgns,'circle');
 
     circleCenter.setAttributeNS(null, 'cx', pCenterX);
@@ -580,7 +627,7 @@ function buildTraceDiagram(centerText,traces) {
     circleCenter.setAttributeNS(null, 'style', 'fill: blue; stroke: blue; stroke-width: 1px;' );
     container.appendChild(circleCenter);
 
-// 8/7/19
+    // Draw Label
     var text1 = document.createElementNS(svgns, 'text');
     text1.setAttributeNS(null,'x',pCenterX - 40);
     text1.setAttributeNS(null,'y',pCenterY + 40);
