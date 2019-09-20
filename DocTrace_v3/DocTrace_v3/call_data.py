@@ -227,7 +227,7 @@ def test_find_parent_child():
 
 def test_create_multiple_docs():
     range_start = 1
-    range_stop = 3
+    range_stop = 5
 
     for i in range(range_start,range_stop):
         doc_data = {"doc_name": "doc" +str(i)}
@@ -270,6 +270,13 @@ def test_create_multiple_docs():
                                   "append_doc_id": r4['msg']}
                         r = BLL_DocGroupSections.attach_sections(j_body)
 
+                        for k in range(range_start, range_stop):
+                            doc_data = {"doc_name": "doc" + str((i * 10000) + k)}
+                            r6 = BLL_Documents.create_document(doc_data=doc_data)
+
+                            j_body = {"doc_id": r6['msg'],
+                                      "append_doc_id": r5['msg']}
+                            r = BLL_DocGroupSections.attach_sections(j_body)
 
 
 
@@ -288,7 +295,7 @@ def main():
     # TEST SECTIONS
     # test_create_section()
     # test_get_all_sections()
-    test_get_sections_by_doc('d60a7e19-6c2c-4d90-92c9-cb8fb6c189a0')
+    # test_get_sections_by_doc('d60a7e19-6c2c-4d90-92c9-cb8fb6c189a0')
     # test_edit_section()
 
     # TEST GROUPS
@@ -313,7 +320,7 @@ def main():
     #     t = 4
     #     u = r/t
     #     print(u)
-    # test_create_multiple_docs()
+    test_create_multiple_docs()
     print('done')
 
 if __name__ == "__main__":

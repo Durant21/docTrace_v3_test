@@ -49,7 +49,7 @@ class BLL_Doc_Parent:
         return final_lst1
 
     @classmethod
-    def find_parent(self, doc_list,docs_all,final_lst2):
+    def find_parent(self, doc_list,docs_all,final_lst2,count=0):
 
         tmp_lst = []
 
@@ -62,14 +62,16 @@ class BLL_Doc_Parent:
                     final_lst2.append(u)
 
         if len(tmp_lst) > 0:
-            self.find_parent(tmp_lst,docs_all,final_lst2)
+            print("find_parent() length {}".format(len(tmp_lst)))
+            self.find_parent(tmp_lst,docs_all,final_lst2,count+1)
         # else:
-
+        print("called find_parent() {} times".format(count))
         return final_lst2
 
     @classmethod
-    def find_child(self, doc_list, docs_all,final_lst):
+    def find_child(self, doc_list, docs_all,final_lst, count=0):
         tmp_lst = []
+        t = 0
 
         for d in doc_list:
             for u in docs_all:
@@ -80,9 +82,12 @@ class BLL_Doc_Parent:
                     final_lst.append(u)
 
         if len(tmp_lst) > 0:
-            self.find_child(tmp_lst,docs_all,final_lst)
+            print("find_child() length {}".format(len(tmp_lst)))
+            self.find_child(tmp_lst,docs_all,final_lst, count+1)
         # else:
 
+
+        print("called find_child() {} times".format(count))
         return final_lst
 
     @classmethod

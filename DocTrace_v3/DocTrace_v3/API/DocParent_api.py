@@ -24,4 +24,5 @@ def single_document_parent(request: Request):
     doc_id = request.matchdict.get('doc_id')
     doc_parent = BLL_Doc_Parent.get_doc_parent_by_doc_id(doc_id)
 
+    print("returning list length {}".format(len(doc_parent)))
     return doc_parent

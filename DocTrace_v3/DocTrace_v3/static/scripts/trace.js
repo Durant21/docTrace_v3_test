@@ -114,7 +114,7 @@ traces2 = [
             }
         }
     }
-    if ((tempArray) && (tempArray.length > 0))
+    if ((tempArray) && (tempArray.length > 0) && (tempArray.length < 100))
     {
         buildLeftPanels(tempArray,'doc1',locPanelNumber + 1,locPanelSide, traces)
     }
@@ -194,7 +194,7 @@ traces2 = [
             }
         }
     }
-    if ((tempArray1) && (tempArray1.length > 0))
+    if ((tempArray1) && (tempArray1.length > 0) && (tempArray1.length < 100))
     {
     buildRightPanels(tempArray1,'doc11',locPanelNumber + 1,locPanelSide,traces)
     }
