@@ -101,43 +101,118 @@
         populateContractorsList();
     }
 
-
-
     function open_new_content_dialog(eName) {
         t = document.getElementById(eName);
         t.style.display = "block";
     }
 
-
     function upsize_trace_diagram() {
         t = document.getElementById('secondsvg');
         current_width = t.clientWidth;
-        current_height = t.clientHeight;
-        //alert(current_width + 50);
         t.style.width = (current_width + 50).toString() + 'px';
-        t.style.height = (current_height + 50).toString() + 'px';
-        doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+
         doc_id = $("#ddlAdminContractors option:selected").val();
-        gggR = gggR * 1.1;
-        gggL = gggL * 0.9;
-        yFactor = yFactor * 1.1;
-        dFactor = dFactor + .25;
         buildTraceArray(doc_id);
     }
 
     function downsize_trace_diagram() {
         t = document.getElementById('secondsvg');
         current_width = t.clientWidth;
-        current_height = t.clientHeight;
+        //current_height = t.clientHeight;
         //alert(current_width + 50);
         t.style.width = (current_width - 50).toString() + 'px';
+        //t.style.height = (current_height - 50).toString() + 'px';
+
+        doc_id = $("#ddlAdminContractors option:selected").val();
+
+        buildTraceArray(doc_id);
+    }
+
+    function downsize_svg_height() {
+        t = document.getElementById('secondsvg');
+        current_height = t.clientHeight;
         t.style.height = (current_height - 50).toString() + 'px';
-        doc_id = "ae7d25d1-cc21-4452-973f-8ffeefb328ee";
+
+        doc_id = $("#ddlAdminContractors option:selected").val();
+
+        buildTraceArray(doc_id);
+    }
+
+    function upsize_svg_height() {
+        t = document.getElementById('secondsvg');
+        current_height = t.clientHeight;
+        t.style.height = (current_height + 50).toString() + 'px';
+
+        doc_id = $("#ddlAdminContractors option:selected").val();
+
+        buildTraceArray(doc_id);
+    }
+
+    function upsize_trace_div(dimension) {
+        t = document.getElementById('traceDiv');
+        current_width = t.clientWidth;
+        current_height = t.clientHeight;
+
+        if (dimension == 'w') {
+            t.style.width = (current_width + 50).toString() + 'px';
+        } else if (dimension == 'h') {
+            t.style.height = (current_height + 50).toString() + 'px';
+        }
+
+        doc_id = $("#ddlAdminContractors option:selected").val();
+
+        buildTraceArray(doc_id);
+    }
+
+    function downsize_trace_div(dimension) {
+        t = document.getElementById('traceDiv');
+        current_width = t.clientWidth;
+        current_height = t.clientHeight;
+        //alert(current_width + 50);
+        if (dimension == 'w') {
+            t.style.width = (current_width - 50).toString() + 'px';
+        } else if (dimension == 'h') {
+            t.style.height = (current_height - 50).toString() + 'px';
+        }
+
+        doc_id = $("#ddlAdminContractors option:selected").val();
+        // gggR = gggR * .9;
+        // gggL = gggL * 1.1;
+        // yFactor = yFactor * .9;
+        // dFactor = dFactor - 0.25;
+        buildTraceArray(doc_id);
+    }
+
+    function upsize_Factor() {
+        doc_id = $("#ddlAdminContractors option:selected").val();
+        // gggR = gggR * 1.1;
+        // gggL = gggL * 0.9;
+        yFactor = yFactor * 1.1;
+        //dFactor = dFactor + .25;
+        buildTraceArray(doc_id);
+    }
+
+    function downsize_Factor() {
+        doc_id = $("#ddlAdminContractors option:selected").val();
+        // gggR = gggR * 1.1;
+        // gggL = gggL * 0.9;
+        yFactor = yFactor * .9;
+        //dFactor = dFactor - .25;
+        buildTraceArray(doc_id);
+    }
+
+    function upsize_Global() {
+        doc_id = $("#ddlAdminContractors option:selected").val();
+        gggR = gggR * 1.1;
+        gggL = gggL * 0.9;
+
+        buildTraceArray(doc_id);
+    }
+
+    function downsize_Global() {
         doc_id = $("#ddlAdminContractors option:selected").val();
         gggR = gggR * .9;
         gggL = gggL * 1.1;
-        yFactor = yFactor * .9;
-        dFactor = dFactor - 0.25;
         buildTraceArray(doc_id);
     }
 
@@ -277,18 +352,49 @@
 
     </div>
 
-    <div id="outerDiv" style="background-color: white; width: 80%">
+    <div id="outerDiv" style="background-color: white; width: 100%; overflow: auto; height: 200px;">
 
     </div>
     <br><br>
-    <div class="col-sm-3 col-md-6" style="padding-top: 15px; padding-bottom: 10px;">
+    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+        <label>svg</label>
          <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
          <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
     </div>
+    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+          <label>trace div</label>
+         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_div('w')" >+</button>
+         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_div('w')" >-</button>
+    </div>
+    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+          <label>factor</label>
+         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Factor()" >+</button>
+         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Factor()" >-</button>
+    </div>
+    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+          <label>global</label>
+         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Global()" >+</button>
+         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Global()" >-</button>
+    </div>
 
-    <div id="traceDiv" style="background-color: lavender; overflow-y: auto; width: 80%; height: 600px;">
 
-         <svg id="secondsvg" height="600" width="900" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <div class="col-sm-3 col-md-1" style="padding-top: 15px; padding-bottom: 10px;">
+          <label>svg height</label>
+         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_svg_height()" >+</button>
+         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_svg_height()" >-</button>
+        <hr>
+          <label>trace div</label>
+         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_div('h')" >+</button>
+         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_div('h')" >-</button>
+    </div>
+
+
+
+    <div class="col-sm-3 col-md-11" style="padding-top: 15px; padding-bottom: 10px;">
+        <div id="traceDiv" style="background-color: lavender; overflow-y: auto; width: 80%; height: 600px;">
+
+         <svg id="secondsvg" height="600" width="600" style="background-color: lightgrey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- <line x1= "10" y1= "10"
                   x2="490" y2="490,"
                   style="stroke:rgb(255,90,50); stroke-width:5" -->
@@ -311,6 +417,7 @@
               <g id="myg" class="links"></g>
 
 
+    </div>
     </div>
 
      <div id="divCurrentContent" class="form-group">
