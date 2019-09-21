@@ -1,5 +1,4 @@
 from DocTrace_v3.Domain.Documents import Document
-
 from DocTrace_v3.viewmodels.base_viewmodel import ViewModelBase
 
 class CreateDocumentViewModel(ViewModelBase):

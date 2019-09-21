@@ -41,6 +41,13 @@ def test_update_doc(doc_name):
     r = BLL_Documents.update_document(doc_id='1001',doc_data=doc_data)
     print(r)
 
+def test_get_doc_by_name():
+    doc_name = 'abc'
+    doc = BLL_Documents.single_document_by_name(doc_name)
+    if not doc:
+        print('could not find {}'.format(doc_name))
+
+
 def test_create_section():
     # section_data = request.json_body
     section_data = {"sec_date_in":"1/1/2019", "sec_text": "new section 1"}
@@ -86,8 +93,6 @@ def test_create_group(inc_num):
     r = BLL_Groups.create_group(group_data)
     group_id = r["msg"]
     print("created group" + group_id)
-
-
 
 def test_create_doc_group_relationships():
     # get a random existing document
@@ -227,7 +232,7 @@ def test_find_parent_child():
 
 def test_create_multiple_docs():
     range_start = 1
-    range_stop = 5
+    range_stop = 3
 
     for i in range(range_start,range_stop):
         doc_data = {"doc_name": "doc" +str(i)}
@@ -320,7 +325,13 @@ def main():
     #     t = 4
     #     u = r/t
     #     print(u)
+
+
     test_create_multiple_docs()
+
+    # test_get_doc_by_name()
+
+
     print('done')
 
 if __name__ == "__main__":
