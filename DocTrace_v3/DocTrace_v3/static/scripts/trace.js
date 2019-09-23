@@ -179,14 +179,15 @@ traces2 = [
                 if (traces[n])
                 {
                     if (traces[n][1] == r) {
-                        // alert(traces[n][0]);
                         var nArray = new Array ();
                         y = y + yFactor;  // was 50
-                        // nArray[0] = [x,y,traces[n][0],traces[n][1]];
-                        nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
-                        // paL2[n] = nArray;
+                        v = lookForValInArray(x,y,traces[n][2], superArray);
+                        //nArray[0] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
+                        nArray[0] = [locPanelNumber,v.aValX,v.aValY,traces[n][1],traces[n][2],t[1],t[2],locPanelSide];
+
                         superArray[superArray.length + 1] = nArray;
                         tempArray1[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
+                        //tempArray1[u] = [locPanelNumber,x,y,traces[n][1],traces[n][2],t[1],t[2]];
                         u = u + 1;
                         a = 0;
                     }
@@ -200,6 +201,28 @@ traces2 = [
     }
 }
 
+function lookForValInArray(x1, y1,aVal, aArray) {
+      var nArray = new Array ();
+      aValX = x1;
+      aValY = y1;
+      replaced = 'false';
+
+      for(var i = 0 ; i < aArray.length; i ++) {
+          if (aArray[i]) {
+              b = aArray[i][0][4];
+              if (aVal == b) {
+
+                aValX = aArray[i][0][1];
+                aValY = aArray[i][0][2];
+                replaced = 'true';
+                console.log('replaced ' + x1 + ',' + y1 + ' with ' + aValX + ',' + aValY)
+              }
+          }
+      }
+
+      nArray = {aValX,aValY,replaced}
+      return nArray;
+}
 
    function buildTraceDiagram(centerText,traces) {
 

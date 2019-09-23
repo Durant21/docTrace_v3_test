@@ -227,7 +227,7 @@ def test_find_parent_child():
 
 def test_create_multiple_docs():
     range_start = 1
-    range_stop = 5
+    range_stop = 3
 
     for i in range(range_start,range_stop):
         doc_data = {"doc_name": "doc" +str(i)}
