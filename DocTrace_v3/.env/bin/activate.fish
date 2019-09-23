@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/dante/Projects/DocTrace_v3/.env"
+set -gx VIRTUAL_ENV "/home/dante/Projects/DocTrace_v3/DocTrace_v3/DocTrace_v3/.env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

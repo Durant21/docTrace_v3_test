@@ -1,5 +1,5 @@
-from DocTrace_v3.DAL.sql_documents import documents
-from DocTrace_v3.Domain.Documents import Document
+
+# from DocTrace_v3.DocTrace_v3.Domain.Documents import Document
 from DocTrace_v3.DAL.Documents import DAL_Documents
 from DocTrace_v3.viewmodels.create_document_viewodel import CreateDocumentViewModel
 from DocTrace_v3.viewmodels.update_document_viewmodel import UpdateDocumentViewModel
@@ -28,6 +28,12 @@ class BLL_Documents:
 
     @classmethod
     def create_document(cls,doc_data):
+
+        # # test if Document already exists
+        # doc = BLL_Documents.single_document_by_name(doc_name)
+        # if not doc:
+        #     print('could not find {}'.format(doc_name))
+
 
         # TODO: Validate
         vm = CreateDocumentViewModel(doc_data)
