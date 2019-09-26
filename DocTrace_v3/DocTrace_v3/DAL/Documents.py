@@ -14,7 +14,8 @@ class DAL_Documents:
     @classmethod
     def all_documents(cls,limit=None):
         session = DbSessionFactory.create_session()
-        query = session.query(Document)
+        query = session.query(Document). \
+            order_by(Document.doc_name)
 
         if limit:
             documents = query[:limit]

@@ -166,6 +166,8 @@ function create_document() {
                // e_btnAddContent.style.visibility = "visible";
                e_btnAddContent.style.display = "block";
            }
+
+           populateContractorsList();
         },
 
         error: function (xhr) {

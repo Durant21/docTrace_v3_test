@@ -114,6 +114,11 @@ traces2 = [
             }
         }
     }
+
+    if (tempArray) {
+        console.log('buildLeftPanels():  tempArray.length = ' + tempArray.length)
+    }
+
     if ((tempArray) && (tempArray.length > 0) && (tempArray.length < 100))
     {
         buildLeftPanels(tempArray,'doc1',locPanelNumber + 1,locPanelSide, traces)
@@ -195,6 +200,12 @@ traces2 = [
             }
         }
     }
+
+        if (tempArray1) {
+            console.log('buildRightPanels():  tempArray.length = ' + tempArray1.length)
+        }
+
+
     if ((tempArray1) && (tempArray1.length > 0) && (tempArray1.length < 100))
     {
     buildRightPanels(tempArray1,'doc11',locPanelNumber + 1,locPanelSide,traces)
@@ -215,7 +226,7 @@ function lookForValInArray(x1, y1,aVal, aArray) {
                 aValX = aArray[i][0][1];
                 aValY = aArray[i][0][2];
                 replaced = 'true';
-                console.log('replaced ' + x1 + ',' + y1 + ' with ' + aValX + ',' + aValY)
+                console.log('(' + i + ') replaced ' + x1 + ',' + y1 + ' with ' + aValX + ',' + aValY)
               }
           }
       }
@@ -240,7 +251,7 @@ t = document.getElementById('secondsvg');
 
       //alert( svgWidth);
       var pCenterX = svgWidth/2;
-      var pCenterY = svgHeight/2;
+      var pCenterY = svgHeight/4;
       //var w = 300;
       var cars = ["Saab", "Volvo", "BMW"];
 

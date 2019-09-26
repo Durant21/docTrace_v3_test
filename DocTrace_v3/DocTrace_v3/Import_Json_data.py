@@ -22,18 +22,19 @@ from DocTrace_v3.BLL.DocGroupSections import BLL_DocGroupSections
 #
 
 def run_it():
-    with open('data1a.json', 'r') as f:
+    # with open('data1a.json', 'r') as f:
+    with open('data1a.json', encoding="utf8") as f:
         relationships_dict = json.load(f)
 
     for rel in relationships_dict:
-        r = rel['Source']
+        r = rel['SourceName']
         t = r.split('/')
         if t:
             source_doc_name = t[len(t) - 1]
             print(source_doc_name)
             g = verify_doc_in_DB(source_doc_name)
 
-        r = rel['Target']
+        r = rel['TargetName']
         t = r.split('/')
         if t:
             target_doc_name = t[len(t) - 1]

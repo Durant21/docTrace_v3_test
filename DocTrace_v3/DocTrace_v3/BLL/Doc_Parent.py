@@ -61,7 +61,7 @@ class BLL_Doc_Parent:
 
                     final_lst2.append(u)
 
-        if len(tmp_lst) > 0:
+        if (len(tmp_lst) > 0) and (len(tmp_lst) < 100):
             print("find_parent() length {}".format(len(tmp_lst)))
             self.find_parent(tmp_lst,docs_all,final_lst2,count+1)
         # else:
@@ -81,7 +81,7 @@ class BLL_Doc_Parent:
 
                     final_lst.append(u)
 
-        if len(tmp_lst) > 0:
+        if (len(tmp_lst) > 0) and (len(tmp_lst) < 100):
             print("find_child() length {}".format(len(tmp_lst)))
             self.find_child(tmp_lst,docs_all,final_lst, count+1)
         # else:
