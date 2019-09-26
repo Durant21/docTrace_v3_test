@@ -37,7 +37,7 @@ class DAL_Groups:
                 filter(Document.doc_id == Group.doc_id,\
                        Section.sec_id == Group.sec_id,\
                        Document.doc_id == doc_id).all():
-            print("group_id: {} doc_name: {}".format(g.group_id, d.doc_name))
+            print("group_id: {} doc_name: {}  text: {}".format(g.group_id, d.doc_name, s.sec_text))
 
             u = Doc_Group_Sec()
 

@@ -40,6 +40,7 @@ class BLL_Groups:
             # return Response(status=400, body='Could not save car.')
             # return "400 " + "Could not save group."
             return {"status": "400", "msg": "Could not save group."}
+
     @classmethod
     def update_group(cls,group_id,group_data): # (int,json_body)
 

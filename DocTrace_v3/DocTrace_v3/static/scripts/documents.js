@@ -141,8 +141,13 @@ function create_document() {
         },
 
         success: function (response) {
-            var lblDocName = document.getElementById("lblDocName");
-            lblDocName.innerHTML = response;
+
+            // update the blue DocName label
+            aDocName = get_document_name(response)
+            if (aDocName) {
+                var lblDocName = document.getElementById("lblDocName");
+                lblDocName.innerHTML = aDocName;
+            }
 
             // get the doc and set the lblDocName to 'doc_name'
            var e_hdnDoc_id = document.getElementById("txt_doc_id");
