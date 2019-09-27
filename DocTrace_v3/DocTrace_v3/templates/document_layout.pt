@@ -87,6 +87,13 @@
 .list-group-item {
     padding: 1px;
 }
+
+.c1 {
+display: block;
+    height: 35px;
+    width: 35px;
+    border: 2px solid white;
+}
   </style>
 </head>
 <body onload="loc_page_load()">
@@ -281,6 +288,8 @@
             onclick="changeDimensions()"/>
            -->
 
+
+
 <div id="divCreateDocument">
      <div class="container">
 
@@ -314,79 +323,107 @@
 <!--?  <p>The form below contains a textarea for comments:</p>-->
 
    <br>
-    <button type="button" id="btnAddContent" class="btn" onclick="open_new_content_dialog('divNewContent')" >Add Content</button>
 
     <br>
-    <div id="divNewContent" class="form-group" style="background-color: lightcyan; padding-left:
-                                                        15px;padding-top: 5px; padding-bottom: 5px; width: 900px;">
+    <div id="divNewContent" class="form-group" style="background-color: white; padding-left:
+                                                        15px;padding-top: 5px; padding-bottom: 5px; width: 900px;
+                                                        border-style: solid; border-width: 1px;">
         <div style="background-color: white; padding-left: 5px; padding-bottom: 5px; padding-top: 5px; width: 850px;">
-            <table style="width:550px">
-                <tr>
-                    <td>
-                        <label for="comment">Existing Content:</label>
-                    </td>
-                    <td>
-                        <select class="" id="ddlDocuments_NewContent" style="width: 410px !important; min-width: 100px;
-                                                                                 max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
-                                name="D7" >
-                        </select>
-                    </td>
-                    <td style="horiz-align: left"><u>view</u></td>
-                    <td>
-                        <button type="button" id="btnAddDocToContent" class="btn" onclick="addContentToDoc()" >Add</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
+            <form>
+            <div class="radio">
+              <label><input type="radio" name="optradio" checked>Existing Content:</label>
+                        <table style="width:550px">
+                            <tr>
+                                <td>
+                                    <label for="comment"></label>
+                                </td>
+                                <td>
+                                    <select class="" id="ddlDocuments_NewContent" style="width: 410px !important; min-width: 100px;
+                                                                                             max-width: 200px;" data-bind="options: dbAdminContractors, optionsText: 'doc_name', optionsValue: 'doc_id'"
+                                            name="D7" >
+                                    </select>
+                                </td>
+                                <td style="horiz-align: left"><u>view</u></td>
+                                <td>
+                                    <button type="button" id="btnAddDocToContent" class="btn" onclick="addContentToDoc()" >Add</button>
+                                </td>
+                            </tr>
+                        </table>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio">New Content:</label>
+                <div style="background-color: white; padding-left: 25px; padding-bottom: 5px; width: 850px;">
+                    <label for="comment"></label>
+                    <textarea class="form-control" style="width: 800px" rows="5" id="txt_new_content">hHeader information....</textarea>
+                    <br>
+                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" id="btnSaveNewContent" class="btn" onclick="create_content()" >Save</button>
 
-        <br>
-        <div style="background-color: white; padding-left: 5px; padding-bottom: 5px; width: 850px;">
-            <label for="comment">New Content:</label>
-            <textarea class="form-control" style="width: 800px" rows="5" id="txt_new_content">hHeader information....</textarea>
+                </div>
+            </div>
+          </form>
             <br>
-            <button type="button" class="btn btn-warning">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-            <button type="button" id="btnSaveNewContent" class="btn" onclick="create_content()" >Save</button>
+        </div>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default" style="height:200px;">
+            <div class="panel-heading" style="height: 55px">
+                <div class="col-sm-10" style=""><h4>Content</h4></div>
+                <div class="col-sm-2" style="">
+                        <button type="button" id="btnAddContent" class="btn" onclick="open_new_content_dialog('divNewContent')" >Add Content</button>
+                </div>
+            </div>
+            <div class="panel-body" style="height: 80%;overflow: auto;">
+                <div id="outerDiv" style="background-color: white; width: 100%; overflow: auto; height: 80%;">
+            </div>
 
         </div>
 
     </div>
 
-    <div id="outerDiv" style="background-color: white; width: 100%; overflow: auto; height: 100px;">
-
-    </div>
     <br><br>
-    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
-        <label>svg</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
+
+  <div class="row">
+    <div class="col-sm-2" style="background-color:white;"></div>
+    <div class="col-sm-10" style="background-color:white;">
+        <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+            <label>svg</label>
+             <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_diagram()" >+</button>
+             <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_diagram()" >-</button>
+        </div>
+        <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+              <label>trace div</label>
+             <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_div('w')" >+</button>
+             <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_div('w')" >-</button>
+        </div>
+        <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+              <label>factor</label>
+             <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Factor()" >+</button>
+             <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Factor()" >-</button>
+        </div>
+        <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
+              <label>global</label>
+             <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Global()" >+</button>
+             <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Global()" >-</button>
+        </div>
     </div>
-    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
-          <label>trace div</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_div('w')" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_div('w')" >-</button>
-    </div>
-    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
-          <label>factor</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Factor()" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Factor()" >-</button>
-    </div>
-    <div class="col-sm-3 col-md-3" style="padding-top: 15px; padding-bottom: 10px;">
-          <label>global</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_Global()" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_Global()" >-</button>
-    </div>
+  </div>
+
+
 
 
 
     <div class="col-sm-3 col-md-1" style="padding-top: 15px; padding-bottom: 10px;">
           <label>svg height</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_svg_height()" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_svg_height()" >-</button>
+         <button type="button" id="btnIncreaseContent" class="btn c1" onclick="upsize_svg_height()" >+</button>
+         <button type="button" id="btnReduceContent" class="btn c1" onclick="downsize_svg_height()" >-</button>
         <hr>
           <label>trace div</label>
-         <button type="button" id="btnIncreaseContent" class="btn" onclick="upsize_trace_div('h')" >+</button>
-         <button type="button" id="btnReduceContent" class="btn" onclick="downsize_trace_div('h')" >-</button>
+         <button type="button" id="btnIncreaseContent" class="btn c1" onclick="upsize_trace_div('h')" >+</button>
+         <button type="button" id="btnReduceContent" class="btn c1" onclick="downsize_trace_div('h')" >-</button>
     </div>
 
 

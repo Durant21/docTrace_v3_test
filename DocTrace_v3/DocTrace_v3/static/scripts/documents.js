@@ -369,23 +369,23 @@ function generateSectionsDiv(sec_text,sec_id) {
             innerDiv2.appendChild(text1);
 
             // create a BUTTON, with an ANCHOR and a SPAN
-            var btn1 = document.createElement( "button")
-            var a1 = document.createElement("a")
-            // a1.className = "fas fa-chevron-down"
-            var span1 = document.createElement("span")
-            span1.className = "glyphicon glyphicon-arrow-down"
-            a1.appendChild(span1)
-            btn1.appendChild(a1)
-            innerDiv2.appendChild(btn1);
+            // var btn1 = document.createElement( "button")
+            // var a1 = document.createElement("a")
+            // // a1.className = "fas fa-chevron-down"
+            // var span1 = document.createElement("span")
+            // span1.className = "glyphicon glyphicon-arrow-down"
+            // a1.appendChild(span1)
+            // btn1.appendChild(a1)
+            // innerDiv2.appendChild(btn1);
 
             // create a BUTTON, with an ANCHOR and a SPAN
-            var btn2 = document.createElement( "button")
-            var a2 = document.createElement("a")
-            var span2 = document.createElement("span")
-            span2.className = "glyphicon glyphicon-arrow-up"
-            a2.appendChild(span2)
-            btn2.appendChild(a2)
-            innerDiv2.appendChild(btn2);
+            // var btn2 = document.createElement( "button")
+            // var a2 = document.createElement("a")
+            // var span2 = document.createElement("span")
+            // span2.className = "glyphicon glyphicon-arrow-up"
+            // a2.appendChild(span2)
+            // btn2.appendChild(a2)
+            // innerDiv2.appendChild(btn2);
 
             outerDiv.appendChild(innerDiv1)
             innerDiv1.appendChild(innerDiv2)
