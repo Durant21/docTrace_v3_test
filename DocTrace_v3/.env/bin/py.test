@@ -1,4 +1,4 @@
-#!/home/dante/Projects/DocTrace_v3/DocTrace_v3/DocTrace_v3/.env/bin/python
+#!/Users/dantefernandez/Projects/DocTrace_v3/DocTrace_v3/.env/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pytest','console_scripts','py.test'
 __requires__ = 'pytest'
 import re
